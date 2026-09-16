@@ -1,0 +1,85 @@
+Project: Modernize the header and hero section of a college swim/dive
+recruiting-style site. Keep the existing brand palette, replace the
+typography and layout patterns to feel current.
+
+DESIGN TOKENS (add to a tailwind.config or CSS variables file first)
+--------------------------------------------------------------------
+Colors:
+  --color-navy: #0033A0        (primary brand blue)
+  --color-navy-deep: #00329E   (secondary panel/overlay blue)
+  --color-accent: #091CE9      (bright blue accent, use sparingly)
+  --color-black: #000000
+  --color-white: #FFFFFF
+  --color-offwhite: #FAF9F5    (section background alternate)
+
+Fonts (Google Fonts, free replacements for the current proprietary fonts):
+  --font-display: "Archivo Black", sans-serif   (replaces Torque-Ultra
+      for big uppercase headlines; alternative: "Anton" or "Oswald 700")
+  --font-body: "Inter", sans-serif              (replaces Aktiv Grotesk
+      for nav, body copy, buttons; alternative: "Manrope")
+
+Type scale:
+  Hero H1: 64-96px desktop / 40px mobile, uppercase, font-display,
+      tight letter-spacing (-0.02em), line-height 0.95
+  Nav links: 14px, font-body, medium weight, uppercase, letter-spacing 0.05em
+  Body copy: 16-18px, font-body, regular weight, line-height 1.6
+
+HEADER SPEC
+--------------------------------------------------------------------
+- Sticky, transparent over the hero image, transitions to solid white
+  background with a subtle shadow once the user scrolls past ~80px.
+- Layout: logo left, nav links centered, CTA pill button right
+  (matches the inspiration's structure).
+- Nav links: About / Men's / Women's / International — keep existing
+  items, restyle as font-body medium, uppercase, 14px, letter-spacing.
+- CTA button: pill shape (border-radius: 999px), navy background with
+  white text when header is transparent-over-hero; on scroll (solid
+  header) flip to white background with navy text and a 1px navy border.
+  Label: "Email Coach Bret" or shorten to "Contact Us" for a cleaner look.
+- Mobile: hamburger icon right, logo stays left, slide-in or full-screen
+  nav drawer using the same navy/white palette.
+
+HERO SPEC
+--------------------------------------------------------------------
+- Full-bleed background: existing pool photo/video, with a dark
+  navy-to-transparent gradient overlay (top-to-bottom or left-to-right)
+  so white text stays readable — use --color-navy-deep at 40-60% opacity
+  layered with a black gradient at the bottom third.
+- Headline: two-line uppercase stack, font-display, e.g.
+      "WELCOME TO"
+      "YOUR FUTURE"
+  Apply two-tone color: first line white, second line (or one key word)
+  in --color-accent, mirroring the inspiration's yellow-highlight pattern
+  but using your existing bright blue accent instead.
+- Subheading: one sentence, font-body, 18px, white/80% opacity, max-width
+  ~520px, directly under the headline (reuse the existing program
+  description copy).
+- CTA button: pill-shaped, --color-accent or white background with navy
+  text, label "Explore the Program" or similar, positioned under the
+  subheading.
+- Social-proof badge: small rounded card in the bottom-right corner of
+  the hero image containing a stacked avatar group + a stat
+  (e.g., "Est. 19XX · Big Blue Nation"), white/frosted-glass background
+  (backdrop-blur), matching the inspiration's "800+ Member Join" widget.
+- Stats row: directly below the hero, 3 columns on an off-white
+  (--color-offwhite) background, each with a large navy number
+  (font-display) and a short label underneath (font-body) — same
+  pattern as the inspiration's "810+ Active Members / 98% Satisfaction
+  Rate / 20+ Certified Pro Coaches" row, populated with real program
+  stats.
+
+TECH NOTES
+--------------------------------------------------------------------
+- Build as static HTML/CSS/JS (or React if the existing Replit project
+  already uses it) — match whatever framework is already in the repo.
+- Import fonts via Google Fonts <link> tags or @font-face, do not use
+  the old Torque-Ultra/Aktiv Grotesk font files.
+- Fully responsive: stack the stats row to 1 column and reduce the
+  hero headline to ~40px on screens under 480px.
+- Keep all existing nav links and destinations functional — this is a
+  visual/typography refresh, not an IA change.
+- Ensure text over the hero image passes WCAG AA contrast (this is why
+  the gradient overlay matters).
+
+Deliverable for this pass: just the header component and hero section,
+fully responsive, ready to drop into the existing page.

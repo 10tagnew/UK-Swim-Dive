@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "UK Swim and Dive"
+description = "A modern, editorial-style recruiting landing page for UK Swim and Dive, centered on the program's culture, future athletes, and a cinematic Vimeo hero film."
+version = "1.0.0"
+id = "artifacts/uk-swim-dive"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20113
+
+[services.development]
+run = "pnpm --filter @workspace/uk-swim-dive run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/uk-swim-dive", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/uk-swim-dive/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20113"
+BASE_PATH = "/"
