@@ -19,8 +19,7 @@ const queryClient = new QueryClient();
 const filmUrl = 'https://vimeo.com/1040090851/f6faeedac4?fl=pl&fe=vl';
 const playerUrl =
   'https://player.vimeo.com/video/1040090851?h=f6faeedac4&background=1&autoplay=1&loop=1&muted=1&autopause=0&title=0&byline=0&portrait=0';
-const filmPreviewUrl =
-  'https://www.youtube-nocookie.com/embed/qYCkvsCkiUI?start=17&autoplay=1&mute=1&loop=1&playlist=qYCkvsCkiUI&controls=0&modestbranding=1&playsinline=1&rel=0';
+const filmThumbnailUrl = 'https://img.youtube.com/vi/qYCkvsCkiUI/hqdefault.jpg';
 const filmLightboxUrl = 'https://www.youtube-nocookie.com/embed/qYCkvsCkiUI?start=17&autoplay=1&rel=0';
 
 const navItems = [
@@ -133,6 +132,7 @@ function Header({
 
 function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isFilmFloating, setIsFilmFloating] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
   const globalTrackRef = useRef<HTMLDivElement>(null);
@@ -144,7 +144,10 @@ function Home() {
   };
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 70);
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 70);
+      setIsFilmFloating(window.scrollY > window.innerHeight * 0.5);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -242,20 +245,13 @@ function Home() {
             <div className="uk-scroll-cue"><i /> Scroll to begin</div>
           </div>
         </div>
-        <div className="uk-film-overlay-wrap">
+        <div className={`uk-film-overlay-wrap ${isFilmFloating ? 'is-floating' : ''}`}>
           <Dialog>
             <DialogTrigger asChild>
               <button type="button" className="uk-film-overlay" data-testid="button-hero-film-preview" aria-label="Watch the UK Swim and Dive film">
                 <span className="uk-film-overlay-backtitle" aria-hidden="true">Wildcat strong</span>
                 <span className="uk-film-overlay-preview">
-                  <iframe
-                    className="uk-film-overlay-video"
-                    src={filmPreviewUrl}
-                    title=""
-                    allow="autoplay; encrypted-media"
-                    tabIndex={-1}
-                    aria-hidden="true"
-                  />
+                  <img className="uk-film-overlay-video" src={filmThumbnailUrl} alt="" />
                   <span className="uk-film-overlay-play" aria-hidden="true"><Play size={18} fill="currentColor" /></span>
                 </span>
               </button>
