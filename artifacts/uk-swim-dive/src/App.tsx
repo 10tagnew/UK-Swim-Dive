@@ -1,8 +1,13 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Menu, Play, X } from 'lucide-react';
 import { FaFacebookF, FaInstagram, FaTiktok, FaXTwitter } from 'react-icons/fa6';
-import fallbackImage from '@assets/f9897c18e12bd15d59627b9c07f427d1_1789601422956.webp';
+import athletePhoto1 from '@assets/international-athlete-01.png';
+import athletePhoto2 from '@assets/international-athlete-02.png';
+import athletePhoto3 from '@assets/international-athlete-03.png';
+import athletePhoto4 from '@assets/international-athlete-04.png';
+import athletePhoto5 from '@assets/international-athlete-05.png';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -13,6 +18,9 @@ const queryClient = new QueryClient();
 const filmUrl = 'https://vimeo.com/1040090851/f6faeedac4?fl=pl&fe=vl';
 const playerUrl =
   'https://player.vimeo.com/video/1040090851?h=f6faeedac4&background=1&autoplay=1&loop=1&muted=1&autopause=0&title=0&byline=0&portrait=0';
+const filmPreviewUrl =
+  'https://www.youtube-nocookie.com/embed/qYCkvsCkiUI?start=17&autoplay=1&mute=1&loop=1&playlist=qYCkvsCkiUI&controls=0&modestbranding=1&playsinline=1&rel=0';
+const filmLightboxUrl = 'https://www.youtube-nocookie.com/embed/qYCkvsCkiUI?start=17&autoplay=1&rel=0';
 
 const navItems = [
   { label: 'About', href: '#about' },
@@ -21,13 +29,13 @@ const navItems = [
   { label: 'International', href: '#international' },
 ];
 
+// TODO: swap in each athlete's real name + home country once provided.
 const internationalAthletes = [
-  { name: 'Elena Vasquez', country: 'Spain', event: 'Distance Freestyle' },
-  { name: 'Kofi Mensah', country: 'Ghana', event: 'Sprint Freestyle' },
-  { name: 'Mei Lin Tan', country: 'Singapore', event: 'Individual Medley' },
-  { name: 'Lucas Oliveira', country: 'Brazil', event: 'Platform Diving' },
-  { name: 'Freya Andersen', country: 'Denmark', event: 'Backstroke' },
-  { name: 'Arjun Rao', country: 'India', event: 'Breaststroke' },
+  { photo: athletePhoto1, name: 'UK Swim & Dive', country: 'International Wildcat' },
+  { photo: athletePhoto2, name: 'UK Swim & Dive', country: 'International Wildcat' },
+  { photo: athletePhoto3, name: 'UK Swim & Dive', country: 'International Wildcat' },
+  { photo: athletePhoto4, name: 'UK Swim & Dive', country: 'International Wildcat' },
+  { photo: athletePhoto5, name: 'UK Swim & Dive', country: 'International Wildcat' },
 ];
 
 const programLinks = [
@@ -39,15 +47,6 @@ const programLinks = [
   'Facilities',
   'Life in Lexington',
 ];
-
-function getInitials(name: string) {
-  return name
-    .split(' ')
-    .map((part) => part[0])
-    .join('')
-    .slice(0, 2)
-    .toUpperCase();
-}
 
 function BrandMark() {
   return (
@@ -187,7 +186,7 @@ function Home() {
         onNavigate={closeMenu}
       />
       <section className="uk-hero" aria-labelledby="hero-title">
-        <div className="uk-hero-fallback" style={{ backgroundImage: `url(${fallbackImage})` }} aria-hidden="true" />
+        <div className="uk-hero-fallback" aria-hidden="true" />
         {!videoFailed && (
           <iframe
             className="uk-vimeo"
@@ -204,40 +203,55 @@ function Home() {
           <div className="uk-hero-content">
             <div className="uk-eyebrow"><span /> University of Kentucky · Lexington</div>
             <h1 id="hero-title">
-              Your next
-              <em>chapter</em>
-              <span className="uk-word-mark">starts here.</span>
+              Become
+              <em>Unstoppable</em>
             </h1>
             <p className="uk-hero-sub">
               Swim with purpose. Dive with confidence. Discover a program built around relentless work, real belonging, and the belief that your best is still ahead.
             </p>
             <div className="uk-hero-actions">
               <a className="uk-primary-button" href="#about" data-testid="link-explore-program">
-                Explore the Program <ArrowUpRight size={16} />
-              </a>
-              <a
-                className="uk-film-link"
-                href={filmUrl}
-                target="_blank"
-                rel="noreferrer"
-                data-testid="link-view-film"
-              >
-                <span className="uk-play" aria-hidden="true"><Play size={13} fill="currentColor" /></span>
-                View the film
+                <span className="uk-cta-full">Take the First Step In Becoming a Wildcat</span>
+                <span className="uk-cta-short">Become a Wildcat</span>
+                <ArrowUpRight size={16} />
               </a>
             </div>
           </div>
           <div className="uk-hero-foot">
             <div className="uk-scroll-cue"><i /> Scroll to begin</div>
-            <div className="uk-proof" data-testid="status-program-proof">
-              <div className="uk-proof-avatars" aria-hidden="true">
-                <span>AS</span><span>JC</span><span>MR</span>
-              </div>
-              <div className="uk-proof-text">
-                <strong>Wildcat strong</strong>
-                <small>One team. Every lane.</small>
-              </div>
-            </div>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button type="button" className="uk-proof" data-testid="button-hero-film-preview" aria-label="Watch the UK Swim and Dive film">
+                  <span className="uk-proof-preview">
+                    <iframe
+                      className="uk-proof-preview-video"
+                      src={filmPreviewUrl}
+                      title=""
+                      allow="autoplay; encrypted-media"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                    />
+                    <span className="uk-proof-play" aria-hidden="true"><Play size={11} fill="currentColor" /></span>
+                  </span>
+                  <span className="uk-proof-text">
+                    <strong>Wildcat strong</strong>
+                    <small>Watch the film</small>
+                  </span>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="uk-film-lightbox border-0 bg-black p-0 gap-0 max-w-4xl w-[92vw] text-white shadow-2xl rounded-2xl overflow-hidden" data-testid="dialog-hero-film">
+                <DialogTitle className="sr-only">UK Swim and Dive film</DialogTitle>
+                <div className="uk-film-lightbox-frame">
+                  <iframe
+                    src={filmLightboxUrl}
+                    title="UK Swim and Dive film"
+                    allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+                    allowFullScreen
+                    data-testid="iframe-hero-film-lightbox"
+                  />
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </section>
@@ -291,7 +305,7 @@ function Home() {
         <div className="uk-statement-card">
           <span className="uk-statement-kicker">Our Mission</span>
           <h2 id="mission-title" className="sr-only">Program mission</h2>
-          <p>Every Wildcat begins the same way: a 5 a.m. alarm, a cold pool deck, and a decision to show up anyway. We built this program on the belief that discipline and joy aren&apos;t opposites &mdash; they&apos;re partners.</p>
+          <p>We built this program on the belief that discipline and joy aren&apos;t opposites. They&apos;re partners.</p>
           <p>From the blocks to the boards, our athletes chase best times for each other as much as for themselves. That&apos;s Big Blue Nation: a family that trains hard, competes harder, and never swims alone.</p>
         </div>
       </section>
@@ -326,14 +340,13 @@ function Home() {
             </div>
           </div>
           <div className="uk-global-track" ref={globalTrackRef}>
-            {internationalAthletes.map((athlete) => (
-              <article className="uk-global-card" key={athlete.name} data-testid={`card-athlete-${athlete.name.toLowerCase().replaceAll(' ', '-')}`}>
-                <span className="uk-shield-mark uk-shield-mark--light" aria-hidden="true" />
+            {internationalAthletes.map((athlete, index) => (
+              <article className="uk-global-card" key={athlete.photo} data-testid={`card-athlete-${index + 1}`}>
+                <img className="uk-global-card-photo" src={athlete.photo} alt="" />
                 <span className="uk-global-card-scrim" aria-hidden="true" />
-                <span className="uk-global-initials" aria-hidden="true">{getInitials(athlete.name)}</span>
                 <span className="uk-global-card-cap">
                   <strong>{athlete.name}</strong>
-                  <span>{athlete.country} &middot; {athlete.event}</span>
+                  <span>{athlete.country}</span>
                 </span>
               </article>
             ))}
