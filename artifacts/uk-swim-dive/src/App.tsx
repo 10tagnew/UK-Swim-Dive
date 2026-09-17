@@ -246,6 +246,7 @@ function Home() {
           <Dialog>
             <DialogTrigger asChild>
               <button type="button" className="uk-film-overlay" data-testid="button-hero-film-preview" aria-label="Watch the UK Swim and Dive film">
+                <span className="uk-film-overlay-backtitle" aria-hidden="true">Wildcat strong</span>
                 <span className="uk-film-overlay-preview">
                   <iframe
                     className="uk-film-overlay-video"
@@ -256,10 +257,6 @@ function Home() {
                     aria-hidden="true"
                   />
                   <span className="uk-film-overlay-play" aria-hidden="true"><Play size={18} fill="currentColor" /></span>
-                </span>
-                <span className="uk-film-overlay-text">
-                  <strong>Wildcat strong</strong>
-                  <small>Watch the film</small>
                 </span>
               </button>
             </DialogTrigger>
