@@ -370,7 +370,23 @@
   display: flex;
   justify-content: flex-end;
   pointer-events: none;
+  transition: opacity .25s ease;
 }
+.uk-film-overlay-wrap.is-floating {
+  position: fixed;
+  left: auto;
+  right: 20px;
+  bottom: 20px;
+  transform: none;
+  z-index: 30;
+}
+.uk-film-overlay-wrap.is-floating .uk-film-overlay {
+  max-width: 190px;
+  padding: 22px 14px 16px;
+  border-radius: 16px;
+}
+.uk-film-overlay-wrap.is-floating .uk-film-overlay-backtitle { font-size: 1.15rem; padding: 10px; }
+.uk-film-overlay-wrap.is-floating .uk-film-overlay-play { width: 36px; height: 36px; }
 .uk-film-overlay {
   pointer-events: auto;
   position: relative;
@@ -419,7 +435,7 @@
   background: var(--ink);
   box-shadow: 0 18px 38px rgba(0, 13, 64, .35);
 }
-.uk-film-overlay-video { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; border: 0; pointer-events: none; }
+.uk-film-overlay-video { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; border: 0; pointer-events: none; }
 .uk-film-overlay-play {
   position: absolute;
   top: 50%;
