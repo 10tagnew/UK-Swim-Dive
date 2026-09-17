@@ -211,7 +211,9 @@ function Home() {
             </p>
             <div className="uk-hero-actions">
               <a className="uk-primary-button" href="#about" data-testid="link-explore-program">
-                Take the First Step In Becoming a Wildcat <ArrowUpRight size={16} />
+                <span className="uk-cta-full">Take the First Step In Becoming a Wildcat</span>
+                <span className="uk-cta-short">Become a Wildcat</span>
+                <ArrowUpRight size={16} />
               </a>
             </div>
           </div>

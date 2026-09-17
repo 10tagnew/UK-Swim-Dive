@@ -347,6 +347,7 @@
 .uk-primary-button:hover { background: #5575ff; transform: translateY(-3px); }
 .uk-primary-button svg { transition: transform .25s ease; }
 .uk-primary-button:hover svg { transform: translateX(4px); }
+.uk-cta-short { display: none; }
 .uk-hero-foot {
   display: flex;
   align-items: flex-end;
@@ -890,6 +891,8 @@
   .uk-footer-credit { padding: 16px 6vw; justify-content: flex-start; }
 }
 @media (max-width: 480px) {
+  .uk-cta-full { display: none; }
+  .uk-cta-short { display: inline; }
   .uk-mark-sub { display: none; }
   .uk-mark-title { font-size: 13px; }
   .uk-mark-shield { width: 28px; height: 36px; font-size: 15px; }
