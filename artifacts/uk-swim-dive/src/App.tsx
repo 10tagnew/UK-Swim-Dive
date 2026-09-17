@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Menu, Play, X } from 'lucide-react';
 import { FaFacebookF, FaInstagram, FaTiktok, FaXTwitter } from 'react-icons/fa6';
+import athletePhoto1 from '@assets/international-athlete-01.png';
+import athletePhoto2 from '@assets/international-athlete-02.png';
+import athletePhoto3 from '@assets/international-athlete-03.png';
+import athletePhoto4 from '@assets/international-athlete-04.png';
+import athletePhoto5 from '@assets/international-athlete-05.png';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
@@ -20,13 +25,13 @@ const navItems = [
   { label: 'International', href: '#international' },
 ];
 
+// TODO: swap in each athlete's real name + home country once provided.
 const internationalAthletes = [
-  { name: 'Elena Vasquez', country: 'Spain', event: 'Distance Freestyle' },
-  { name: 'Kofi Mensah', country: 'Ghana', event: 'Sprint Freestyle' },
-  { name: 'Mei Lin Tan', country: 'Singapore', event: 'Individual Medley' },
-  { name: 'Lucas Oliveira', country: 'Brazil', event: 'Platform Diving' },
-  { name: 'Freya Andersen', country: 'Denmark', event: 'Backstroke' },
-  { name: 'Arjun Rao', country: 'India', event: 'Breaststroke' },
+  { photo: athletePhoto1, name: 'UK Swim & Dive', country: 'International Wildcat' },
+  { photo: athletePhoto2, name: 'UK Swim & Dive', country: 'International Wildcat' },
+  { photo: athletePhoto3, name: 'UK Swim & Dive', country: 'International Wildcat' },
+  { photo: athletePhoto4, name: 'UK Swim & Dive', country: 'International Wildcat' },
+  { photo: athletePhoto5, name: 'UK Swim & Dive', country: 'International Wildcat' },
 ];
 
 const programLinks = [
@@ -38,15 +43,6 @@ const programLinks = [
   'Facilities',
   'Life in Lexington',
 ];
-
-function getInitials(name: string) {
-  return name
-    .split(' ')
-    .map((part) => part[0])
-    .join('')
-    .slice(0, 2)
-    .toUpperCase();
-}
 
 function BrandMark() {
   return (
@@ -324,14 +320,13 @@ function Home() {
             </div>
           </div>
           <div className="uk-global-track" ref={globalTrackRef}>
-            {internationalAthletes.map((athlete) => (
-              <article className="uk-global-card" key={athlete.name} data-testid={`card-athlete-${athlete.name.toLowerCase().replaceAll(' ', '-')}`}>
-                <span className="uk-shield-mark uk-shield-mark--light" aria-hidden="true" />
+            {internationalAthletes.map((athlete, index) => (
+              <article className="uk-global-card" key={athlete.photo} data-testid={`card-athlete-${index + 1}`}>
+                <img className="uk-global-card-photo" src={athlete.photo} alt="" />
                 <span className="uk-global-card-scrim" aria-hidden="true" />
-                <span className="uk-global-initials" aria-hidden="true">{getInitials(athlete.name)}</span>
                 <span className="uk-global-card-cap">
                   <strong>{athlete.name}</strong>
-                  <span>{athlete.country} &middot; {athlete.event}</span>
+                  <span>{athlete.country}</span>
                 </span>
               </article>
             ))}

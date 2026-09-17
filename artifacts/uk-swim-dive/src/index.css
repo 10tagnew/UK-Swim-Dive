@@ -650,21 +650,8 @@
   flex-direction: column;
   justify-content: flex-end;
 }
-.uk-global-card .uk-shield-mark { top: -12%; left: 50%; width: 135%; height: 135%; transform: translateX(-50%) rotate(-8deg); opacity: .1; z-index: -1; }
-.uk-global-initials {
-  align-self: flex-start;
-  width: 46px;
-  height: 46px;
-  margin-bottom: auto;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(255,255,255,.14);
-  border: 1px solid rgba(255,255,255,.3);
-  font: 15px/1 'Archivo Black', sans-serif;
-  color: white;
-}
-.uk-global-card-scrim { position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(2,8,28,.9) 0%, rgba(2,8,28,0) 62%); }
+.uk-global-card-photo { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+.uk-global-card-scrim { position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(2,8,28,.92) 0%, rgba(2,8,28,.05) 62%); }
 .uk-global-card-cap strong { display: block; font: 15px/1.2 'Archivo Black', sans-serif; letter-spacing: -.01em; }
 .uk-global-card-cap span { display: block; margin-top: 6px; font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.68); }
 
