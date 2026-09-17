@@ -7,6 +7,7 @@ import athletePhoto3 from '@assets/international-athlete-03.png';
 import athletePhoto4 from '@assets/international-athlete-04.png';
 import athletePhoto5 from '@assets/international-athlete-05.png';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -17,6 +18,9 @@ const queryClient = new QueryClient();
 const filmUrl = 'https://vimeo.com/1040090851/f6faeedac4?fl=pl&fe=vl';
 const playerUrl =
   'https://player.vimeo.com/video/1040090851?h=f6faeedac4&background=1&autoplay=1&loop=1&muted=1&autopause=0&title=0&byline=0&portrait=0';
+const filmPreviewUrl =
+  'https://www.youtube-nocookie.com/embed/qYCkvsCkiUI?start=17&autoplay=1&mute=1&loop=1&playlist=qYCkvsCkiUI&controls=0&modestbranding=1&playsinline=1&rel=0';
+const filmLightboxUrl = 'https://www.youtube-nocookie.com/embed/qYCkvsCkiUI?start=17&autoplay=1&rel=0';
 
 const navItems = [
   { label: 'About', href: '#about' },
@@ -209,29 +213,43 @@ function Home() {
               <a className="uk-primary-button" href="#about" data-testid="link-explore-program">
                 Explore the Program <ArrowUpRight size={16} />
               </a>
-              <a
-                className="uk-film-link"
-                href={filmUrl}
-                target="_blank"
-                rel="noreferrer"
-                data-testid="link-view-film"
-              >
-                <span className="uk-play" aria-hidden="true"><Play size={13} fill="currentColor" /></span>
-                View the film
-              </a>
             </div>
           </div>
           <div className="uk-hero-foot">
             <div className="uk-scroll-cue"><i /> Scroll to begin</div>
-            <div className="uk-proof" data-testid="status-program-proof">
-              <div className="uk-proof-avatars" aria-hidden="true">
-                <span>AS</span><span>JC</span><span>MR</span>
-              </div>
-              <div className="uk-proof-text">
-                <strong>Wildcat strong</strong>
-                <small>One team. Every lane.</small>
-              </div>
-            </div>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button type="button" className="uk-proof" data-testid="button-hero-film-preview" aria-label="Watch the UK Swim and Dive film">
+                  <span className="uk-proof-preview">
+                    <iframe
+                      className="uk-proof-preview-video"
+                      src={filmPreviewUrl}
+                      title=""
+                      allow="autoplay; encrypted-media"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                    />
+                    <span className="uk-proof-play" aria-hidden="true"><Play size={11} fill="currentColor" /></span>
+                  </span>
+                  <span className="uk-proof-text">
+                    <strong>Wildcat strong</strong>
+                    <small>Watch the film</small>
+                  </span>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="uk-film-lightbox border-0 bg-black p-0 gap-0 max-w-4xl w-[92vw] text-white shadow-2xl rounded-2xl overflow-hidden" data-testid="dialog-hero-film">
+                <DialogTitle className="sr-only">UK Swim and Dive film</DialogTitle>
+                <div className="uk-film-lightbox-frame">
+                  <iframe
+                    src={filmLightboxUrl}
+                    title="UK Swim and Dive film"
+                    allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+                    allowFullScreen
+                    data-testid="iframe-hero-film-lightbox"
+                  />
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </section>
@@ -285,7 +303,7 @@ function Home() {
         <div className="uk-statement-card">
           <span className="uk-statement-kicker">Our Mission</span>
           <h2 id="mission-title" className="sr-only">Program mission</h2>
-          <p>Every Wildcat begins the same way: a 5 a.m. alarm, a cold pool deck, and a decision to show up anyway. We built this program on the belief that discipline and joy aren&apos;t opposites &mdash; they&apos;re partners.</p>
+          <p>We built this program on the belief that discipline and joy aren&apos;t opposites. They&apos;re partners.</p>
           <p>From the blocks to the boards, our athletes chase best times for each other as much as for themselves. That&apos;s Big Blue Nation: a family that trains hard, competes harder, and never swims alone.</p>
         </div>
       </section>
