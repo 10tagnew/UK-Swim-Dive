@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Menu, Play, X } from 'lucide-react';
 import { FaFacebookF, FaInstagram, FaTiktok, FaXTwitter } from 'react-icons/fa6';
-import fallbackImage from '@assets/f9897c18e12bd15d59627b9c07f427d1_1789601422956.webp';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
@@ -187,7 +186,7 @@ function Home() {
         onNavigate={closeMenu}
       />
       <section className="uk-hero" aria-labelledby="hero-title">
-        <div className="uk-hero-fallback" style={{ backgroundImage: `url(${fallbackImage})` }} aria-hidden="true" />
+        <div className="uk-hero-fallback" aria-hidden="true" />
         {!videoFailed && (
           <iframe
             className="uk-vimeo"
@@ -204,9 +203,8 @@ function Home() {
           <div className="uk-hero-content">
             <div className="uk-eyebrow"><span /> University of Kentucky · Lexington</div>
             <h1 id="hero-title">
-              Your next
-              <em>chapter</em>
-              <span className="uk-word-mark">starts here.</span>
+              Become
+              <em>Unstoppable</em>
             </h1>
             <p className="uk-hero-sub">
               Swim with purpose. Dive with confidence. Discover a program built around relentless work, real belonging, and the belief that your best is still ahead.
