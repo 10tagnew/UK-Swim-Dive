@@ -6,6 +6,7 @@ import athletePhoto2 from '@assets/international-athlete-02.png';
 import athletePhoto3 from '@assets/international-athlete-03.png';
 import athletePhoto4 from '@assets/international-athlete-04.png';
 import athletePhoto5 from '@assets/international-athlete-05.png';
+import ukLogoMark from '@assets/uk-logo-mark.png';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { ErrorBoundary } from '@/components/error-boundary';
@@ -51,7 +52,7 @@ const programLinks = [
 function BrandMark() {
   return (
     <a className="uk-mark" href="#top" data-testid="link-brand" aria-label="UK Swim and Dive home">
-      <span className="uk-mark-shield" aria-hidden="true">UK</span>
+      <img className="uk-mark-shield" src={ukLogoMark} alt="" aria-hidden="true" />
       <span className="uk-mark-copy">
         <span className="uk-mark-title">UK SWIM &amp; DIVE</span>
         <span className="uk-mark-sub">LEXINGTON · KENTUCKY</span>
@@ -188,15 +189,35 @@ function Home() {
       <section className="uk-hero" aria-labelledby="hero-title">
         <div className="uk-hero-fallback" aria-hidden="true" />
         {!videoFailed && (
-          <iframe
-            className="uk-vimeo"
-            src={playerUrl}
-            title="UK Swim and Dive film"
-            allow="autoplay; fullscreen; picture-in-picture"
-            referrerPolicy="strict-origin-when-cross-origin"
-            onError={() => setVideoFailed(true)}
-            data-testid="iframe-hero-film"
-          />
+          <>
+            <iframe
+              className="uk-vimeo is-echo is-echo-top"
+              src={playerUrl}
+              title=""
+              allow="autoplay; fullscreen; picture-in-picture"
+              referrerPolicy="strict-origin-when-cross-origin"
+              tabIndex={-1}
+              aria-hidden="true"
+            />
+            <iframe
+              className="uk-vimeo"
+              src={playerUrl}
+              title="UK Swim and Dive film"
+              allow="autoplay; fullscreen; picture-in-picture"
+              referrerPolicy="strict-origin-when-cross-origin"
+              onError={() => setVideoFailed(true)}
+              data-testid="iframe-hero-film"
+            />
+            <iframe
+              className="uk-vimeo is-echo is-echo-bottom"
+              src={playerUrl}
+              title=""
+              allow="autoplay; fullscreen; picture-in-picture"
+              referrerPolicy="strict-origin-when-cross-origin"
+              tabIndex={-1}
+              aria-hidden="true"
+            />
+          </>
         )}
         <div className="uk-video-shade" aria-hidden="true" />
         <div className="uk-hero-inner">
@@ -219,40 +240,42 @@ function Home() {
           </div>
           <div className="uk-hero-foot">
             <div className="uk-scroll-cue"><i /> Scroll to begin</div>
-            <Dialog>
-              <DialogTrigger asChild>
-                <button type="button" className="uk-proof" data-testid="button-hero-film-preview" aria-label="Watch the UK Swim and Dive film">
-                  <span className="uk-proof-preview">
-                    <iframe
-                      className="uk-proof-preview-video"
-                      src={filmPreviewUrl}
-                      title=""
-                      allow="autoplay; encrypted-media"
-                      tabIndex={-1}
-                      aria-hidden="true"
-                    />
-                    <span className="uk-proof-play" aria-hidden="true"><Play size={11} fill="currentColor" /></span>
-                  </span>
-                  <span className="uk-proof-text">
-                    <strong>Wildcat strong</strong>
-                    <small>Watch the film</small>
-                  </span>
-                </button>
-              </DialogTrigger>
-              <DialogContent className="uk-film-lightbox border-0 bg-black p-0 gap-0 max-w-4xl w-[92vw] text-white shadow-2xl rounded-2xl overflow-hidden" data-testid="dialog-hero-film">
-                <DialogTitle className="sr-only">UK Swim and Dive film</DialogTitle>
-                <div className="uk-film-lightbox-frame">
-                  <iframe
-                    src={filmLightboxUrl}
-                    title="UK Swim and Dive film"
-                    allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-                    allowFullScreen
-                    data-testid="iframe-hero-film-lightbox"
-                  />
-                </div>
-              </DialogContent>
-            </Dialog>
           </div>
+        </div>
+        <div className="uk-film-overlay-wrap">
+          <Dialog>
+            <DialogTrigger asChild>
+              <button type="button" className="uk-film-overlay" data-testid="button-hero-film-preview" aria-label="Watch the UK Swim and Dive film">
+                <span className="uk-film-overlay-preview">
+                  <iframe
+                    className="uk-film-overlay-video"
+                    src={filmPreviewUrl}
+                    title=""
+                    allow="autoplay; encrypted-media"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                  />
+                  <span className="uk-film-overlay-play" aria-hidden="true"><Play size={18} fill="currentColor" /></span>
+                </span>
+                <span className="uk-film-overlay-text">
+                  <strong>Wildcat strong</strong>
+                  <small>Watch the film</small>
+                </span>
+              </button>
+            </DialogTrigger>
+            <DialogContent className="uk-film-lightbox border-0 bg-black p-0 gap-0 max-w-4xl w-[92vw] text-white shadow-2xl rounded-2xl overflow-hidden" data-testid="dialog-hero-film">
+              <DialogTitle className="sr-only">UK Swim and Dive film</DialogTitle>
+              <div className="uk-film-lightbox-frame">
+                <iframe
+                  src={filmLightboxUrl}
+                  title="UK Swim and Dive film"
+                  allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+                  allowFullScreen
+                  data-testid="iframe-hero-film-lightbox"
+                />
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
       </section>
       <section className="uk-stats" aria-label="Program highlights" data-testid="section-stats">
