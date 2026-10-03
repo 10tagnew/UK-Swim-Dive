@@ -1,13 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Play } from 'lucide-react';
 import { Link } from 'wouter';
-import athletePhoto1 from '@assets/international-athlete-01.png';
-import athletePhoto2 from '@assets/international-athlete-02.png';
-import athletePhoto3 from '@assets/international-athlete-03.png';
-import athletePhoto4 from '@assets/international-athlete-04.png';
-import athletePhoto5 from '@assets/international-athlete-05.png';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Header, RecruitCta, SiteFooter } from '@/site/chrome';
+import { cropStyle, flagEmoji, internationalAthletes } from '@/site/international';
 import { photos, type Photo } from '@/site/photos';
 
 const filmUrl = 'https://vimeo.com/1040090851/f6faeedac4?fl=pl&fe=vl';
@@ -16,14 +12,7 @@ const playerUrl =
 const filmThumbnailUrl = 'https://img.youtube.com/vi/qYCkvsCkiUI/hqdefault.jpg';
 const filmLightboxUrl = 'https://www.youtube-nocookie.com/embed/qYCkvsCkiUI?start=17&autoplay=1&rel=0';
 
-// TODO: swap in each athlete's real name + home country once provided.
-const internationalAthletes = [
-  { photo: athletePhoto1, name: 'UK Swim & Dive', country: 'International Wildcat' },
-  { photo: athletePhoto2, name: 'UK Swim & Dive', country: 'International Wildcat' },
-  { photo: athletePhoto3, name: 'UK Swim & Dive', country: 'International Wildcat' },
-  { photo: athletePhoto4, name: 'UK Swim & Dive', country: 'International Wildcat' },
-  { photo: athletePhoto5, name: 'UK Swim & Dive', country: 'International Wildcat' },
-];
+const worldAthletes = internationalAthletes.filter((athlete) => athlete.flagGraphic);
 
 // TODO: replace the ukswimdive.com links once those pages are rebuilt here.
 const programLinks: Array<{ label: string; href: string; photo: Photo; external?: boolean }> = [
@@ -275,8 +264,12 @@ export default function Home() {
         <div className="uk-global-inner">
           <div className="uk-global-head">
             <div>
-              <h2 id="global-title">From Kentucky to <span>the World</span></h2>
-              <p className="uk-global-sub">Click to see our swimmers rep their home countries on the world stage.</p>
+              <h2 id="global-title">
+                <Link className="uk-global-title-link" href="/international" data-testid="link-global-title">
+                  From Kentucky to <span>the World</span>
+                </Link>
+              </h2>
+              <p className="uk-global-sub">Olympians and national team athletes from eight nations. Meet them.</p>
             </div>
             <div className="uk-global-nav">
               <button type="button" onClick={() => scrollGlobalTrack(-1)} aria-label="Scroll to previous athlete" data-testid="button-global-prev">
@@ -288,15 +281,24 @@ export default function Home() {
             </div>
           </div>
           <div className="uk-global-track" ref={globalTrackRef}>
-            {internationalAthletes.map((athlete, index) => (
-              <article className="uk-global-card" key={athlete.photo} data-testid={`card-athlete-${index + 1}`}>
-                <img className="uk-global-card-photo" src={athlete.photo} alt="" />
+            {worldAthletes.map((athlete) => (
+              <Link
+                className="uk-global-card"
+                key={athlete.slug}
+                href={`/international#athlete-${athlete.slug}`}
+                aria-label={`Meet ${athlete.name}, ${athlete.country}`}
+                style={cropStyle(athlete.slug)}
+                data-testid={`card-athlete-${athlete.slug}`}
+              >
+                {athlete.flagGraphic && (
+                  <img className="uk-global-card-photo" src={athlete.flagGraphic.src} alt={athlete.flagGraphic.alt} loading="lazy" />
+                )}
                 <span className="uk-global-card-scrim" aria-hidden="true" />
                 <span className="uk-global-card-cap">
                   <strong>{athlete.name}</strong>
-                  <span>{athlete.country}</span>
+                  <span><span aria-hidden="true">{flagEmoji(athlete.countryCode)}</span> {athlete.country}</span>
                 </span>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
