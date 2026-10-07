@@ -2,10 +2,10 @@ import { useEffect, useState, type CSSProperties } from 'react';
 import { Maximize2 } from 'lucide-react';
 import { AthleteLightbox } from '@/site/athlete-lightbox';
 import { Section, SubpageLayout } from '@/site/blocks';
+import { Flag } from '@/site/flags';
 import {
   cropStyle,
   firstName,
-  flagEmoji,
   flagFraming,
   hasFeature,
   internationalAthletes,
@@ -77,7 +77,7 @@ function RosterCard({ athlete, onMeet }: { athlete: Athlete; onMeet: () => void 
       <div className="uk-roster-body">
         <h3>{athlete.name}</h3>
         <p className="uk-roster-country">
-          <span aria-hidden="true">{flagEmoji(athlete.countryCode)}</span> {athlete.country}
+          <Flag code={athlete.countryCode} /> {athlete.country}
         </p>
         {athlete.honors.length > 0 && (
           <ul className="uk-roster-honors" id={honorsId}>
@@ -173,7 +173,7 @@ function Feature({ athlete, index }: { athlete: Athlete; index: number }) {
       </div>
       <figure className="uk-feature-card">
         <span className="uk-feature-eyebrow">
-          <span aria-hidden="true">{flagEmoji(athlete.countryCode)}</span> {athlete.country}
+          <Flag code={athlete.countryCode} /> {athlete.country}
         </span>
         <blockquote aria-live="polite">
           <p lang={showNative ? nativeLang : 'en'}>{showNative ? athlete.quoteNative : athlete.quote}</p>

@@ -3,7 +3,8 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Play } from 'lucide-react';
 import { Link } from 'wouter';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Header, RecruitCta, SiteFooter } from '@/site/chrome';
-import { cropStyle, flagEmoji, internationalAthletes } from '@/site/international';
+import { Flag } from '@/site/flags';
+import { cropStyle, internationalAthletes } from '@/site/international';
 import { photos, type Photo } from '@/site/photos';
 
 const filmUrl = 'https://vimeo.com/1040090851/f6faeedac4?fl=pl&fe=vl';
@@ -297,7 +298,7 @@ export default function Home() {
                 <span className="uk-global-card-scrim" aria-hidden="true" />
                 <span className="uk-global-card-cap">
                   <strong>{athlete.name}</strong>
-                  <span><span aria-hidden="true">{flagEmoji(athlete.countryCode)}</span> {athlete.country}</span>
+                  <span><Flag code={athlete.countryCode} /> {athlete.country}</span>
                 </span>
               </Link>
             ))}

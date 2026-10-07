@@ -242,10 +242,6 @@ export function cropStyle(slug: string): CSSProperties | undefined {
   return { '--crop-top': String(framing.cropTop) } as unknown as CSSProperties;
 }
 
-export function flagEmoji(countryCode: string) {
-  return String.fromCodePoint(...[...countryCode.toUpperCase()].map((char) => 0x1f1e6 + char.charCodeAt(0) - 65));
-}
-
 export function firstName(name: string) {
   return name.split(' ')[0];
 }
