@@ -231,9 +231,27 @@ export const languageCodes: Record<string, string> = {
 };
 
 // Framing overrides for flag graphics whose printed text should stay out of frame.
-// cropTop: share of the graphic's height hidden from the top. featurePosition: object-position for the desktop band.
-export const flagFraming: Record<string, { cropTop: number; featurePosition: string }> = {
-  'falemana-tuufui': { cropTop: 0.15, featurePosition: '50% 75%' },
+// cropTop: share of the graphic's height hidden from the top.
+export const flagFraming: Record<string, { cropTop: number }> = {
+  'falemana-tuufui': { cropTop: 0.15 },
+};
+
+// Side of the "In Their Words" quote card, opposite the name printed on each flag graphic.
+export const featureCardSide: Record<string, 'left' | 'right'> = {
+  'esteban-nunez-del-prado': 'left',
+  'fernanda-de-goeij': 'right',
+  'caue-gluck': 'right',
+  'max-berg': 'left',
+  'falemana-tuufui': 'right',
+  'lysander-osman': 'left',
+  'justin-peresse': 'left',
+  'jonathan-rom': 'left',
+  'adomas-gatulis': 'right',
+  'dziugas-miskinis': 'right',
+  'javier-lopez': 'left',
+  'carson-hick': 'right',
+  'chris-nagy': 'left',
+  'levi-sandidge': 'right',
 };
 
 export function cropStyle(slug: string): CSSProperties | undefined {
