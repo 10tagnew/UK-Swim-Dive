@@ -1146,6 +1146,7 @@
 .uk-roster-media.is-flag .uk-crop-img { object-position: 50% 50%; }
 .uk-roster-body { display: flex; flex: 1; flex-direction: column; padding: 20px 20px 22px; }
 .uk-roster-body h3 { margin: 0; color: var(--ink); font: 17px/1.15 'Archivo Black', sans-serif; letter-spacing: -.01em; text-transform: uppercase; }
+.uk-flag { display: inline-block; width: 1.5em; min-width: 18px; aspect-ratio: 3 / 2; height: auto; margin-right: .2em; vertical-align: -.2em; border-radius: 2px; overflow: hidden; box-shadow: 0 0 0 1px rgba(9,23,47,.14); }
 .uk-roster-country { margin: 8px 0 0; color: #4a5875; font-size: 13px; font-weight: 700; }
 .uk-roster-honors { list-style: none; display: grid; gap: 6px; margin: 14px 0 0; padding: 12px 0 0; border-top: 1px solid #e1e8f2; }
 .uk-roster-honors li { position: relative; padding-left: 14px; color: #3d4a63; font-size: 13px; line-height: 1.35; }

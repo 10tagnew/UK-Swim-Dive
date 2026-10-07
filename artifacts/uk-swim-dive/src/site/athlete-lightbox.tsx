@@ -1,7 +1,8 @@
 import { useState, type KeyboardEvent } from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { ArrowLeft, ArrowRight, X } from 'lucide-react';
-import { cropStyle, firstName, flagEmoji, languageCodes, type Athlete } from './international';
+import { Flag } from './flags';
+import { cropStyle, firstName, languageCodes, type Athlete } from './international';
 
 function LightboxQuote({ athlete }: { athlete: Athlete }) {
   const [native, setNative] = useState(false);
@@ -71,7 +72,7 @@ export function AthleteLightbox({
                     )}
                     <div>
                       <span className="uk-lb-eyebrow">
-                        <span aria-hidden="true">{flagEmoji(athlete.countryCode)}</span> {athlete.country}
+                        <Flag code={athlete.countryCode} /> {athlete.country}
                       </span>
                       <DialogPrimitive.Title className="uk-lb-name">{athlete.name}</DialogPrimitive.Title>
                     </div>
