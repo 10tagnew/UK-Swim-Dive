@@ -1,5 +1,6 @@
 import { useEffect, useState, type CSSProperties } from 'react';
-import { ArrowDown } from 'lucide-react';
+import { Maximize2 } from 'lucide-react';
+import { AthleteLightbox } from '@/site/athlete-lightbox';
 import { Section, SubpageLayout } from '@/site/blocks';
 import {
   cropStyle,
@@ -54,7 +55,7 @@ function HeroStats() {
   );
 }
 
-function RosterCard({ athlete }: { athlete: Athlete }) {
+function RosterCard({ athlete, onMeet }: { athlete: Athlete; onMeet: () => void }) {
   const [expanded, setExpanded] = useState(false);
   const photo = athlete.headshot ?? athlete.flagGraphic;
   const visibleHonors = expanded ? athlete.honors : athlete.honors.slice(0, 3);
@@ -63,12 +64,16 @@ function RosterCard({ athlete }: { athlete: Athlete }) {
 
   return (
     <li className="uk-roster-card" data-testid={`card-roster-${athlete.slug}`}>
-      <div
+      <button
+        type="button"
         className={`uk-roster-media ${athlete.headshot ? 'is-headshot' : 'is-flag'}`}
         style={athlete.headshot ? undefined : cropStyle(athlete.slug)}
+        onClick={onMeet}
+        tabIndex={-1}
+        aria-hidden="true"
       >
         {photo && <img className="uk-crop-img" src={photo.src} alt={photo.alt} loading="lazy" />}
-      </div>
+      </button>
       <div className="uk-roster-body">
         <h3>{athlete.name}</h3>
         <p className="uk-roster-country">
@@ -92,13 +97,17 @@ function RosterCard({ athlete }: { athlete: Athlete }) {
             {expanded ? 'Show less' : `+${hidden} more`}
           </button>
         )}
-        {hasFeature(athlete) && (
-          <div className="uk-roster-foot">
-            <a className="uk-roster-meet" href={`#athlete-${athlete.slug}`} data-testid={`link-meet-${athlete.slug}`}>
-              Meet {firstName(athlete.name)} <ArrowDown size={14} aria-hidden="true" />
-            </a>
-          </div>
-        )}
+        <div className="uk-roster-foot">
+          <button
+            type="button"
+            className="uk-roster-meet"
+            onClick={onMeet}
+            aria-haspopup="dialog"
+            data-testid={`button-meet-${athlete.slug}`}
+          >
+            Meet {firstName(athlete.name)} <Maximize2 size={13} aria-hidden="true" />
+          </button>
+        </div>
       </div>
     </li>
   );
@@ -106,6 +115,7 @@ function RosterCard({ athlete }: { athlete: Athlete }) {
 
 function Roster() {
   const [filter, setFilter] = useState('All');
+  const [activeSlug, setActiveSlug] = useState<string | null>(null);
   const shown = filter === 'All' ? internationalAthletes : internationalAthletes.filter((athlete) => athlete.country === filter);
 
   return (
@@ -130,9 +140,10 @@ function Roster() {
       </p>
       <ul className="uk-roster-grid">
         {shown.map((athlete) => (
-          <RosterCard athlete={athlete} key={athlete.slug} />
+          <RosterCard athlete={athlete} key={athlete.slug} onMeet={() => setActiveSlug(athlete.slug)} />
         ))}
       </ul>
+      <AthleteLightbox athletes={shown} activeSlug={activeSlug} onChange={setActiveSlug} />
     </Section>
   );
 }
