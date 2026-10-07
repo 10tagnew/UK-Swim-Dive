@@ -8,6 +8,7 @@ import CoachesPage from '@/pages/coaches';
 import CulturePage from '@/pages/culture';
 import FacilitiesPage from '@/pages/facilities';
 import Home from '@/pages/home';
+import InternationalPage from '@/pages/international';
 import MensPage from '@/pages/mens';
 import NotFound from '@/pages/not-found';
 import WomensPage from '@/pages/womens';
@@ -23,6 +24,7 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/mens" component={MensPage} />
         <Route path="/womens" component={WomensPage} />
+        <Route path="/international" component={InternationalPage} />
         <Route path="/facilities" component={FacilitiesPage} />
         <Route path="/coaches" component={CoachesPage} />
         <Route path="/culture" component={CulturePage} />

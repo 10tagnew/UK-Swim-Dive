@@ -12,6 +12,7 @@ export const navItems = [
   { label: 'Culture', href: '/culture' },
   { label: "Men's", href: '/mens' },
   { label: "Women's", href: '/womens' },
+  { label: 'International', href: '/international' },
   { label: 'Facilities', href: '/facilities' },
   { label: 'Coaches', href: '/coaches' },
 ];

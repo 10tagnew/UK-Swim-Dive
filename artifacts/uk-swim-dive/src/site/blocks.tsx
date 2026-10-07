@@ -12,8 +12,11 @@ export function SubpageLayout({
   sub,
   hero,
   heroPosition,
+  heroClassName = '',
+  heroExtra,
   recruitFormUrl,
   recruitFormLabel,
+  recruitKicker,
   children,
 }: {
   title: string;
@@ -23,15 +26,18 @@ export function SubpageLayout({
   sub: string;
   hero: Photo;
   heroPosition?: string;
+  heroClassName?: string;
+  heroExtra?: ReactNode;
   recruitFormUrl?: string;
   recruitFormLabel?: string;
+  recruitKicker?: string;
   children: ReactNode;
 }) {
   usePageTitle(`${title} | UK Swim and Dive`);
   return (
     <main className="uk-page uk-noise" id="top">
       <Header />
-      <section className="uk-sub-hero" aria-labelledby="sub-hero-title">
+      <section className={`uk-sub-hero ${heroClassName}`} aria-labelledby="sub-hero-title">
         <img
           className="uk-sub-hero-img"
           src={hero.src}
@@ -46,11 +52,12 @@ export function SubpageLayout({
             {heading}
             <em>{accent}</em>
           </h1>
+          {heroExtra}
           <p className="uk-sub-hero-sub">{sub}</p>
         </div>
       </section>
       {children}
-      <RecruitCta formUrl={recruitFormUrl} formLabel={recruitFormLabel} />
+      <RecruitCta formUrl={recruitFormUrl} formLabel={recruitFormLabel} kicker={recruitKicker} />
       <SiteFooter />
     </main>
   );
@@ -59,16 +66,18 @@ export function SubpageLayout({
 export function Section({
   tone = 'light',
   className = '',
+  id,
   labelledBy,
   children,
 }: {
   tone?: Tone;
   className?: string;
+  id?: string;
   labelledBy?: string;
   children: ReactNode;
 }) {
   return (
-    <section className={`uk-sec uk-sec--${tone} ${className}`} aria-labelledby={labelledBy}>
+    <section id={id} className={`uk-sec uk-sec--${tone} ${className}`} aria-labelledby={labelledBy}>
       <div className="uk-sec-inner">{children}</div>
     </section>
   );

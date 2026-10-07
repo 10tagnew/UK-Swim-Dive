@@ -126,7 +126,15 @@ export function Header() {
   );
 }
 
-export function RecruitCta({ formUrl = '', formLabel = '' }: { formUrl?: string; formLabel?: string }) {
+export function RecruitCta({
+  formUrl = '',
+  formLabel = '',
+  kicker = 'Recruiting',
+}: {
+  formUrl?: string;
+  formLabel?: string;
+  kicker?: string;
+}) {
   return (
     <section className="uk-recruit" aria-labelledby="recruit-title" data-testid="section-recruit">
       <div className="uk-recruit-inner">
@@ -139,7 +147,7 @@ export function RecruitCta({ formUrl = '', formLabel = '' }: { formUrl?: string;
           </div>
         </div>
         <div className="uk-recruit-copy">
-          <span className="uk-kicker">Recruiting</span>
+          <span className="uk-kicker">{kicker}</span>
           <h2 id="recruit-title">Next Step: <span>Let&apos;s Set Up a Call</span></h2>
           <p>Ready to talk about your future in the pool? Coach Bret and our staff want to hear your story, your times, and your goals. Then we will help you picture what it looks like to chase them as a Wildcat.</p>
           <div className="uk-recruit-actions">
