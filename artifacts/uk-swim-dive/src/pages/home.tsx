@@ -67,7 +67,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const title = 'UK Swim and Dive | Built to Develop You Faster Than Anyone';
+    const title = 'UK Swim and Dive | Here to Disrupt';
     const description = 'Kentucky Swimming & Diving is climbing fast in the SEC and NCAA. Built to develop you faster than anyone.';
     document.title = title;
     const tags: Array<{ name?: string; property?: string; content: string }> = [
@@ -139,11 +139,11 @@ export default function Home() {
           <div className="uk-hero-content">
             <div className="uk-eyebrow"><span /> University of Kentucky · Lexington</div>
             <h1 id="hero-title">
-              Become
-              <em>Unstoppable</em>
+              Here to
+              <em><span className="uk-glitch" data-text="Disrupt">Disrupt</span></em>
             </h1>
             <p className="uk-hero-sub">
-              Swim with purpose. Dive with confidence. Discover a program built around relentless work, real belonging, and the belief that your best is still ahead.
+              A program climbing fast in the SEC and NCAA. We are not here to fit in. We are here to take over.
             </p>
             <div className="uk-hero-actions">
               <a className="uk-primary-button" href="#about" data-testid="link-explore-program">
@@ -257,7 +257,8 @@ export default function Home() {
           tabIndex={-1}
         />
         <div className="uk-moment-shade" aria-hidden="true" />
-        <h2>Unstoppable</h2>
+        <div className="uk-static" aria-hidden="true" />
+        <h2><span className="uk-glitch" data-text="Unstoppable">Unstoppable</span></h2>
       </section>
 
       <section className="uk-global" id="international-showcase" aria-labelledby="global-title" data-testid="section-global">
