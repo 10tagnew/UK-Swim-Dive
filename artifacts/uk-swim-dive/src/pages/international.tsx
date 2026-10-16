@@ -1,12 +1,12 @@
-import { useEffect, useState, type CSSProperties } from 'react';
+import { useEffect, useState } from 'react';
 import { Maximize2 } from 'lucide-react';
 import { AthleteLightbox } from '@/site/athlete-lightbox';
 import { Section, SubpageLayout } from '@/site/blocks';
 import { Flag } from '@/site/flags';
 import {
   cropStyle,
+  featureCardSide,
   firstName,
-  flagFraming,
   hasFeature,
   internationalAthletes,
   languageCodes,
@@ -152,23 +152,19 @@ function Feature({ athlete, index }: { athlete: Athlete; index: number }) {
   const [native, setNative] = useState(false);
   const graphic = athlete.flagGraphic;
   if (!graphic || !athlete.quote) return null;
-  const framing = flagFraming[athlete.slug];
   const nameId = `feature-name-${athlete.slug}`;
   const showNative = native && Boolean(athlete.quoteNative);
   const nativeLang = athlete.nativeLanguage ? languageCodes[athlete.nativeLanguage] : undefined;
-  const mediaStyle = {
-    ...cropStyle(athlete.slug),
-    ...(framing ? { '--feature-position': framing.featurePosition } : {}),
-  } as unknown as CSSProperties;
+  const side = featureCardSide[athlete.slug] ?? (index % 2 === 0 ? 'left' : 'right');
 
   return (
     <article
-      className={`uk-feature ${index % 2 === 0 ? 'is-left' : 'is-right'}`}
+      className={`uk-feature is-${side}`}
       id={`athlete-${athlete.slug}`}
       aria-labelledby={nameId}
       data-testid={`feature-${athlete.slug}`}
     >
-      <div className="uk-feature-media" style={mediaStyle}>
+      <div className="uk-feature-media" style={cropStyle(athlete.slug)}>
         <img className="uk-crop-img" src={graphic.src} alt={graphic.alt} loading="lazy" />
       </div>
       <figure className="uk-feature-card">
