@@ -1184,27 +1184,27 @@
 }
 .uk-roster-meet:hover, .uk-roster-meet:focus-visible { background: var(--electric); transform: translateY(-2px); }
 
-.uk-words { padding: 112px 0 168px; background: var(--ink); color: white; }
+.uk-words { padding: 112px 0 120px; background: var(--ink); color: white; }
 .uk-words-head { max-width: 1440px; margin: 0 auto 56px; padding: 0 4.2vw; }
 .uk-words-head .uk-sec-title span { color: #7c95ff; }
 .uk-feature { position: relative; scroll-margin-top: 88px; }
-.uk-feature + .uk-feature { margin-top: 168px; }
-.uk-feature-media { position: relative; overflow: hidden; height: 70vh; min-height: 440px; max-height: 860px; background: var(--navy-deep); }
-.uk-feature-media .uk-crop-img { top: 0; height: 100%; object-position: var(--feature-position, 50% 0%); }
+.uk-feature + .uk-feature { margin-top: 120px; }
+/* Show the whole graphic so the printed name is never cropped; the card only overlaps the bottom strip. */
+.uk-feature-media { position: relative; overflow: hidden; aspect-ratio: calc(1.7778 / (1 - var(--crop-top, 0))); background: var(--navy-deep); }
+.uk-feature-media .uk-crop-img { object-position: 50% 100%; }
 .uk-feature-card {
-  position: absolute;
+  position: relative;
   z-index: 1;
-  bottom: -88px;
   width: min(480px, calc(100% - 8.4vw));
-  margin: 0;
+  margin: -96px 0 0;
   padding: 30px 32px 28px;
   border-radius: 18px;
   background: white;
   color: var(--ink);
   box-shadow: var(--shadow-lg);
 }
-.uk-feature.is-left .uk-feature-card { left: 4.2vw; }
-.uk-feature.is-right .uk-feature-card { right: 4.2vw; }
+.uk-feature.is-left .uk-feature-card { margin-left: 4.2vw; }
+.uk-feature.is-right .uk-feature-card { margin-left: auto; margin-right: 4.2vw; }
 .uk-feature-eyebrow { display: block; margin-bottom: 14px; color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
 .uk-feature-card blockquote { margin: 0; }
 .uk-feature-card blockquote p { margin: 0; color: #24324d; font-size: 17px; font-weight: 500; line-height: 1.6; }
@@ -1434,8 +1434,6 @@
   .uk-words { padding: 64px 0 72px; }
   .uk-words-head { margin-bottom: 36px; padding: 0 6vw; }
   .uk-feature + .uk-feature { margin-top: 56px; }
-  .uk-feature-media { height: auto; min-height: 0; max-height: none; aspect-ratio: calc(1.7778 / (1 - var(--crop-top, 0))); }
-  .uk-feature-media .uk-crop-img { top: auto; height: calc(100% / (1 - var(--crop-top, 0))); object-position: 50% 100%; }
   .uk-feature-card, .uk-feature.is-left .uk-feature-card, .uk-feature.is-right .uk-feature-card { position: static; width: auto; margin: 0 6vw; padding: 24px 22px; border-radius: 0 0 16px 16px; }
 }
 @media (max-width: 480px) {
