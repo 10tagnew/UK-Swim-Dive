@@ -1020,9 +1020,6 @@
 .uk-sec--navy .uk-features li, .uk-sec--ink .uk-features li { border-color: rgba(255,255,255,.18); }
 .uk-sec--navy .uk-features li::before, .uk-sec--ink .uk-features li::before { background: #7c95ff; }
 
-.uk-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.uk-info-card { padding: 40px; border: 1px solid rgba(255,255,255,.18); border-radius: 18px; background: rgba(255,255,255,.07); }
-.uk-info-title { margin: 0; font: clamp(1.6rem, 2.6vw, 2.4rem)/1 'Archivo Black', sans-serif; text-transform: uppercase; letter-spacing: -.03em; }
 
 /* Subpages: quote */
 .uk-quote { padding: 112px 4.2vw; background: white; color: var(--ink); }
@@ -1045,7 +1042,7 @@
 .uk-band-inner { max-width: 980px; margin: 0 auto; }
 .uk-band-statement { margin: 0; font: clamp(1.5rem, 3vw, 2.6rem)/1.15 'Archivo Black', sans-serif; text-transform: uppercase; letter-spacing: -.03em; }
 
-.uk-staff-grid { display: grid; grid-template-columns: 1fr; gap: 28px; max-width: 1120px; }
+.uk-staff-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
 .uk-staff-card { margin: 0; overflow: hidden; border-radius: 16px; background: var(--blue); box-shadow: var(--shadow-md); }
 .uk-staff-card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; }
 
@@ -1308,7 +1305,7 @@
 }
 
 @media (max-width: 1080px) {
-  .uk-split, .uk-quote-inner, .uk-sec-grid, .uk-info-grid, .uk-traj { grid-template-columns: 1fr; }
+  .uk-split, .uk-quote-inner, .uk-sec-grid, .uk-traj { grid-template-columns: 1fr; }
   .uk-sec-grid { gap: 32px; }
   .uk-split.is-reverse .uk-split-media { order: 0; }
   .uk-quote-media { max-width: 520px; }
@@ -1383,7 +1380,6 @@
   .uk-figures { grid-template-columns: 1fr; }
   .uk-figures > div, .uk-figures > div + div { padding: 24px 0 8px; border-left: 0; }
   .uk-figures > div + div { border-top: 1px solid #cdd8e8; }
-  .uk-info-card { padding: 28px 24px; }
   .uk-photo-grid { grid-template-columns: 1fr; grid-template-rows: none; height: auto; }
   .uk-photo-grid figure:first-child { grid-row: auto; }
   .uk-photo-grid img { aspect-ratio: 3 / 2; height: auto; }

@@ -1,8 +1,15 @@
 import { ImageBand, Section, Split, StepStrip, SubpageLayout } from '@/site/blocks';
 import { photos } from '@/site/photos';
 
-// TODO: add Head Coach Bret Lundgaard and the rest of the staff when headshots arrive.
-const staff = [photos.coachBenKeast, photos.coachAdrianaContreras];
+// "Meet the coach" graphics from the old site. Name, title, bio and quote are printed on each image (see alt text).
+// TODO: add Head Coach Bret Lundgaard when his graphic arrives.
+const staff = [
+  photos.staffJordanLieberman,
+  photos.staffCauliBedran,
+  photos.staffIvanSanchez,
+  photos.coachBenKeast,
+  photos.coachAdrianaContreras,
+];
 
 export default function CoachesPage() {
   return (
@@ -30,11 +37,11 @@ export default function CoachesPage() {
       </Section>
 
       <Section tone="white" labelledBy="staff-title">
-        <h2 id="staff-title" className="uk-sec-title"><span>Staff</span></h2>
+        <h2 id="staff-title" className="uk-sec-title">Meet the <span>Staff</span></h2>
         <div className="uk-staff-grid">
           {staff.map((coach) => (
             <figure className="uk-staff-card" key={coach.src}>
-              <img src={coach.src} alt={coach.alt} loading="lazy" />
+              <img src={coach.src} alt={coach.alt} loading="lazy" decoding="async" />
             </figure>
           ))}
         </div>

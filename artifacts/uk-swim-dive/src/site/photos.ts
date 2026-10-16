@@ -2,6 +2,11 @@ import campusLibraryAerial from '@assets/campus-library-aerial.webp';
 import careerFairNetworking from '@assets/career-fair-networking.webp';
 import coachAdrianaContreras from '@assets/coach-adriana-contreras.png';
 import coachBenKeast from '@assets/coach-ben-keast.png';
+import facilityNutritionLab from '@assets/facility-nutrition-lab.webp';
+import facilityWoodlandGlenIv from '@assets/facility-woodland-glen-iv.webp';
+import staffCauliBedran from '@assets/staff-cauli-bedran.webp';
+import staffIvanSanchez from '@assets/staff-ivan-sanchez.webp';
+import staffJordanLieberman from '@assets/staff-jordan-lieberman.webp';
 import coachPoolside from '@assets/coach-poolside.jpg';
 import coachResistanceBand from '@assets/coach-resistance-band.jpg';
 import coachSwimmerHug from '@assets/coach-swimmer-hug.jpg';
@@ -100,6 +105,20 @@ export const photos = {
     src: coachAdrianaContreras,
     alt: "Meet Adriana Contreras. Adriana works primarily with the women's sprinters. She brings a proven track record from her previous coaching stops, which includes developing an NCAA All-American this past season.",
   },
+  staffJordanLieberman: {
+    src: staffJordanLieberman,
+    alt: 'Meet Associate Coach Jordan Lieberman. Jordan works primarily with the distance group. During his time at Kentucky, the distance group has established itself as one of the best in the NCAA, producing US National Team selections, All-America performances, an SEC champion and a National Age Group record. Career: University of Kentucky, Associate Coach (2023 to present) and Assistant Coach (2020 to 2023); Boise State University, Assistant Coach (2018 to 2020); Cornell University, Assistant Coach (2016 to 2018); Texas A&M, Volunteer Assistant Coach (2015 to 2016); Team USA, National Team Coach. Quote: "Being part of a program that is on the rise is one of the most rewarding experiences in sport. Kentucky is one of those programs. The values, energy and determination our athletes and staff bring to the pool every day is transformational and contagious. I am so grateful to be a part of this."',
+  },
+  staffIvanSanchez: {
+    src: staffIvanSanchez,
+    alt: "Meet Assistant Coach Ivan Sanchez. Ivan works primarily with the middle-distance and distance groups. During his time at Kentucky, the middle-distance women have emerged as one of the strongest and deepest groups in the SEC, developing multiple conference scorers in events like the 500 free, 400 IM, 1650 free and 200s of stroke. Career: University of Kentucky, Assistant Coach (2024 to present); Southern Illinois University, Assistant Coach (2018 to 2024); Coe College, Assistant Coach (2014 to 2018); Team Mexico, Central American Games and Pan American Games. Quote: \"Coaching at Kentucky isn't just a job. It's a responsibility. It's waking up every day knowing the standard is elite, the competition is ruthless, and the expectation is excellence. It's developing champions in the pool and resilient, disciplined leaders out of it. It's about culture, accountability, and showing up with fire, because when you wear Kentucky across your chest, you don't chase greatness. You set the pace.\"",
+  },
+  staffCauliBedran: {
+    src: staffCauliBedran,
+    alt: "Meet Associate Coach Cauli Bedran. Cauli works primarily with the sprint group. In his first season he transformed the group, breaking school records in all 4 sprint relays, qualifying numerous athletes to NCAAs, and guiding several athletes to some of the fastest swims in the history of the sport. Career: University of Kentucky, Associate Coach (2025 to present); University of Wisconsin, Assistant Coach (2023 to 2025); University of Michigan, Assistant Coach (2021 to 2023) and Volunteer Coach (2018 to 2021); Bowling Green State University, Assistant Coach (2017 to 2018); Olivet College, Head Coach (2016 to 2017); Wayne State University, Grad Assistant (2010 to 2016); Team Brazil, World University Games; Team Singapore, World Cup. Quote: \"What drew me here is the team's blue collar attitude: an environment built on hard work, humility, and consistent progress. I feel a strong alignment with Bret's values and vision for the program's future.\"",
+  },
+  facilityWoodlandGlenIv: { src: facilityWoodlandGlenIv, alt: 'Woodland Glen IV residence hall, a red brick and stone building around a landscaped courtyard with walking paths' },
+  facilityNutritionLab: { src: facilityNutritionLab, alt: 'Kentucky student-athletes cooking together at the stovetops in the nutrition lab, under the UK Performance Nutrition and #FuelingTheCats wall' },
   intlHeadshotFernandaDeGoeij: { src: intlHeadshotFernandaDeGoeij, alt: 'Studio headshot of Fernanda de Goeij in a Kentucky team jacket' },
   intlHeadshotMaxBerg: { src: intlHeadshotMaxBerg, alt: 'Studio headshot of Max Berg in a Kentucky team jacket' },
   intlHeadshotAdomasGatulis: { src: intlHeadshotAdomasGatulis, alt: 'Studio headshot of Adomas Gatulis in a Kentucky team jacket' },
