@@ -69,7 +69,7 @@ export default function Home() {
 
   useEffect(() => {
     const title = 'UK Swim and Dive | Here to Disrupt';
-    const description = 'Kentucky Swimming & Diving is climbing fast in the SEC and NCAA. Built to develop you faster than anyone.';
+    const description = 'Kentucky Swimming & Diving is climbing fast in the NCAA and SEC. Built to develop you faster than anyone.';
     document.title = title;
     const tags: Array<{ name?: string; property?: string; content: string }> = [
       { name: 'description', content: description },
@@ -144,12 +144,12 @@ export default function Home() {
               <em><span className="uk-glitch" data-text="Disrupt">Disrupt</span></em>
             </h1>
             <p className="uk-hero-sub">
-              A program climbing fast in the SEC and NCAA. We are not here to fit in. We are here to take over.
+              A program climbing fast in the NCAA and SEC. We are not here to fit in. We are here to take over.
             </p>
             <div className="uk-hero-actions">
               <a className="uk-primary-button" href="#about" data-testid="link-explore-program">
-                <span className="uk-cta-full">Take the First Step In Becoming a Wildcat</span>
-                <span className="uk-cta-short">Become a Wildcat</span>
+                <span className="uk-cta-full">See Why Recruits Choose Kentucky</span>
+                <span className="uk-cta-short">Why Kentucky</span>
                 <ArrowUpRight size={16} />
               </a>
             </div>
@@ -189,19 +189,63 @@ export default function Home() {
         <img className="uk-stats-bg" src={photos.poolRaceBanners.src} alt={photos.poolRaceBanners.alt} loading="lazy" />
         <div className="uk-stats-inner">
           <div className="uk-stat-intro">
-            <p>They had us 10th.<br />We took notes.</p>
-          </div>
-          <div className="uk-stat" data-testid="stat-sec">
-            <strong>10<span className="uk-stat-arrow" aria-hidden="true">→</span><span className="sr-only"> to </span>8</strong>
-            <span>Men&apos;s SEC finish<br />in two seasons</span>
+            <p>They had us at zero.<br />We took notes.</p>
           </div>
           <div className="uk-stat" data-testid="stat-ncaa">
             <strong>0<span className="uk-stat-arrow" aria-hidden="true">→</span><span className="sr-only"> to </span>52</strong>
             <span>Men&apos;s NCAA points<br />since 2023-24</span>
           </div>
-          <div className="uk-stat" data-testid="stat-gpa">
-            <strong>18</strong>
-            <span>4.0 GPAs<br />last semester</span>
+          <div className="uk-stat" data-testid="stat-ncaa-top-20">
+            <strong>Top 20</strong>
+            <span>NCAA finish two years<br />in a row, up from zero points</span>
+          </div>
+          <div className="uk-stat" data-testid="stat-all-americans">
+            <strong>0<span className="uk-stat-arrow" aria-hidden="true">→</span><span className="sr-only"> to </span>11</strong>
+            <span>NCAA<br />All-Americans</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="uk-global" id="international-showcase" aria-labelledby="global-title" data-testid="section-global">
+        <div className="uk-global-inner">
+          <div className="uk-global-head">
+            <div>
+              <h2 id="global-title">
+                <Link className="uk-global-title-link" href="/international" data-testid="link-global-title">
+                  Disrupting the <span>World Stage</span>
+                </Link>
+              </h2>
+              <p className="uk-global-sub">Olympians and national team medalists from eight nations came to Kentucky to shake up the sport. Meet them.</p>
+            </div>
+            <div className="uk-global-nav">
+              <button type="button" onClick={() => scrollGlobalTrack(-1)} aria-label="Scroll to previous athlete" data-testid="button-global-prev">
+                <ArrowLeft size={17} strokeWidth={1.8} />
+              </button>
+              <button type="button" onClick={() => scrollGlobalTrack(1)} aria-label="Scroll to next athlete" data-testid="button-global-next">
+                <ArrowRight size={17} strokeWidth={1.8} />
+              </button>
+            </div>
+          </div>
+          <div className="uk-global-track" ref={globalTrackRef}>
+            {worldAthletes.map((athlete) => (
+              <Link
+                className="uk-global-card"
+                key={athlete.slug}
+                href={`/international#athlete-${athlete.slug}`}
+                aria-label={`Meet ${athlete.name}, ${athlete.country}`}
+                style={cropStyle(athlete.slug)}
+                data-testid={`card-athlete-${athlete.slug}`}
+              >
+                {athlete.flagGraphic && (
+                  <img className="uk-global-card-photo" src={athlete.flagGraphic.src} alt={athlete.flagGraphic.alt} loading="lazy" />
+                )}
+                <span className="uk-global-card-scrim" aria-hidden="true" />
+                <span className="uk-global-card-cap">
+                  <strong>{athlete.name}</strong>
+                  <span><Flag code={athlete.countryCode} /> {athlete.country}</span>
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -260,50 +304,6 @@ export default function Home() {
         <div className="uk-moment-shade" aria-hidden="true" />
         <div className="uk-static" aria-hidden="true" />
         <h2><span className="uk-glitch" data-text="Unstoppable">Unstoppable</span></h2>
-      </section>
-
-      <section className="uk-global" id="international-showcase" aria-labelledby="global-title" data-testid="section-global">
-        <div className="uk-global-inner">
-          <div className="uk-global-head">
-            <div>
-              <h2 id="global-title">
-                <Link className="uk-global-title-link" href="/international" data-testid="link-global-title">
-                  From Kentucky to <span>the World</span>
-                </Link>
-              </h2>
-              <p className="uk-global-sub">Olympians and national team athletes from eight nations. Meet them.</p>
-            </div>
-            <div className="uk-global-nav">
-              <button type="button" onClick={() => scrollGlobalTrack(-1)} aria-label="Scroll to previous athlete" data-testid="button-global-prev">
-                <ArrowLeft size={17} strokeWidth={1.8} />
-              </button>
-              <button type="button" onClick={() => scrollGlobalTrack(1)} aria-label="Scroll to next athlete" data-testid="button-global-next">
-                <ArrowRight size={17} strokeWidth={1.8} />
-              </button>
-            </div>
-          </div>
-          <div className="uk-global-track" ref={globalTrackRef}>
-            {worldAthletes.map((athlete) => (
-              <Link
-                className="uk-global-card"
-                key={athlete.slug}
-                href={`/international#athlete-${athlete.slug}`}
-                aria-label={`Meet ${athlete.name}, ${athlete.country}`}
-                style={cropStyle(athlete.slug)}
-                data-testid={`card-athlete-${athlete.slug}`}
-              >
-                {athlete.flagGraphic && (
-                  <img className="uk-global-card-photo" src={athlete.flagGraphic.src} alt={athlete.flagGraphic.alt} loading="lazy" />
-                )}
-                <span className="uk-global-card-scrim" aria-hidden="true" />
-                <span className="uk-global-card-cap">
-                  <strong>{athlete.name}</strong>
-                  <span><Flag code={athlete.countryCode} /> {athlete.country}</span>
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
       </section>
 
       <section className="uk-learn" aria-labelledby="learn-title" data-testid="section-learn">

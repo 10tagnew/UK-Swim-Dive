@@ -42,31 +42,34 @@ export default function FacilitiesPage() {
         </Split>
       </Section>
 
-      <Section tone="navy">
-        <div className="uk-info-grid">
-          <article className="uk-info-card" aria-labelledby="nutrition-title">
-            <h2 id="nutrition-title" className="uk-info-title">Nutter Nutrition Lab</h2>
-            <FeatureList
-              items={[
-                'Free for all athletes',
-                '5 complete kitchens with ovens and stovetops',
-                'Stocked with fresh food to cook from scratch',
-                'A staff of nutritionists who teach you to cook and fuel your body',
-              ]}
-            />
-          </article>
-          <article className="uk-info-card" aria-labelledby="woodland-title">
-            <h2 id="woodland-title" className="uk-info-title">Woodland Glen IV</h2>
-            <FeatureList
-              items={[
-                'Built in 2015',
-                'Fully furnished 2-bedroom suites with full bath',
-                'Shared kitchen and living area',
-                'Full extra-long Tempur-Pedic mattress',
-              ]}
-            />
-          </article>
-        </div>
+      <Section tone="light" labelledBy="nutrition-title">
+        <Split photo={photos.facilityNutritionLab} ratio="16 / 9">
+          <h2 id="nutrition-title" className="uk-sec-title">Nutrition <span>Lab</span></h2>
+          <p>The fueling station inside the Nutter Training Facility, with sports nutrition support built into your training day.</p>
+          <FeatureList
+            items={[
+              'Free for all athletes',
+              '5 complete kitchens with ovens and stovetops',
+              'Stocked with fresh food to cook from scratch',
+              'A staff of nutritionists who teach you to cook and fuel your body',
+            ]}
+          />
+        </Split>
+      </Section>
+
+      <Section tone="ink" labelledBy="woodland-title">
+        <Split photo={photos.facilityWoodlandGlenIv} reverse>
+          <h2 id="woodland-title" className="uk-sec-title">Woodland <span>Glen IV</span></h2>
+          <p>Where student-athletes live. A modern, suite-style residence hall a short walk from campus and the pool.</p>
+          <FeatureList
+            items={[
+              'Built in 2015',
+              'Fully furnished 2-bedroom suites with full bath',
+              'Shared kitchen and living area',
+              'Full extra-long Tempur-Pedic mattress',
+            ]}
+          />
+        </Split>
       </Section>
 
       <Section tone="white" className="uk-sec--closing" labelledBy="tour-title">
