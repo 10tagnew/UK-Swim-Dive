@@ -1,5 +1,5 @@
 import { GalleryStrip, QuoteBlock, SubpageLayout, TrajectoryTargets } from '@/site/blocks';
-import { WOMENS_RECRUIT_FORM_URL } from '@/site/config';
+import { WOMENS_ROSTER_URL } from '@/site/config';
 import { photos } from '@/site/photos';
 import { Classroom, ProgramPhilosophy } from '@/site/program';
 
@@ -13,8 +13,7 @@ export default function WomensPage() {
       sub="A team that competes like family and trains like it has something to prove."
       hero={photos.womensRelayTeamSmile}
       heroPosition="60% 35%"
-      recruitFormUrl={WOMENS_RECRUIT_FORM_URL}
-      recruitFormLabel="Women's Recruit Form"
+      teammatesUrl={WOMENS_ROSTER_URL}
     >
       <QuoteBlock
         photo={photos.womensRelayBenchLaughing}

@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Play } from 'lucide-react';
 import { Link } from 'wouter';
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Header, RecruitCta, SiteFooter } from '@/site/chrome';
+import { TEAM_URL } from '@/site/config';
 import { Flag } from '@/site/flags';
 import { cropStyle, internationalAthletes } from '@/site/international';
 import { photos, type Photo } from '@/site/photos';
@@ -18,7 +19,7 @@ const worldAthletes = internationalAthletes.filter((athlete) => athlete.flagGrap
 // TODO: replace the ukswimdive.com links once those pages are rebuilt here.
 const programLinks: Array<{ label: string; href: string; photo: Photo; external?: boolean }> = [
   { label: 'Team Culture', href: '/culture', photo: photos.teammatesMedalHug },
-  { label: 'Get to Know Our Team', href: 'https://www.ukswimdive.com/ourteam', photo: photos.womensRelayBenchLaughing, external: true },
+  { label: 'Get to Know Our Team', href: TEAM_URL, photo: photos.womensRelayBenchLaughing, external: true },
   { label: 'Academics', href: 'https://www.ukswimdive.com/academics', photo: photos.campusLibraryAerial, external: true },
   { label: 'Coaching Staff', href: '/coaches', photo: photos.coachesFansCheering },
   { label: 'Beyond the Pool', href: 'https://www.ukswimdive.com/beyond', photo: photos.careerFairNetworking, external: true },
@@ -328,7 +329,7 @@ export default function Home() {
               <iframe
                 className="uk-video-embed"
                 src={playerUrl}
-                title="Blue Move-In Welcomes"
+                title="UK Swim and Dive program film"
                 allow="autoplay; fullscreen; picture-in-picture"
                 referrerPolicy="strict-origin-when-cross-origin"
                 tabIndex={-1}
@@ -347,8 +348,8 @@ export default function Home() {
               <img className="uk-video-placeholder" src={photos.swimmerSplashCloseup.src} alt={photos.swimmerSplashCloseup.alt} loading="lazy" />
               <span className="uk-video-shade2" aria-hidden="true" />
               <span className="uk-video-play" aria-hidden="true"><Play size={18} fill="currentColor" /></span>
-              <span className="uk-video-badge">2:47</span>
-              <h3>Bowman&apos;s Buzzer Beaters</h3>
+              <span className="uk-video-badge">Watch on Vimeo</span>
+              <h3>Inside the Program.</h3>
             </a>
           </div>
           <div className="uk-videos-foot">

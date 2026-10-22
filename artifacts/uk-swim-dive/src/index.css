@@ -832,6 +832,9 @@
 .uk-recruit-copy h2 span { display: block; color: #7c95ff; }
 .uk-recruit-copy p { max-width: 460px; margin: 0 0 34px; color: rgba(255,255,255,.72); font-size: 16px; line-height: 1.7; }
 .uk-recruit-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.uk-recruit-ask { display: inline-flex; align-items: center; gap: 6px; margin-top: 22px; color: rgba(255,255,255,.82); font-size: 14px; font-weight: 700; text-decoration: underline; text-decoration-color: rgba(124,149,255,.6); text-underline-offset: 5px; }
+.uk-recruit-ask:hover { color: white; text-decoration-color: #7c95ff; }
+.uk-recruit-ask:focus-visible { outline: 2px solid #7c95ff; outline-offset: 4px; border-radius: 4px; }
 
 /* Section 9: Video showcase */
 .uk-videos { background: var(--black); color: white; padding: 112px 4.2vw 120px; }
@@ -1116,6 +1119,57 @@
 .uk-hero-stats > div + div { padding-left: 32px; border-left: 1px solid rgba(255,255,255,.22); }
 .uk-hero-stats dd { margin: 0; font: clamp(2.2rem, 4vw, 3.4rem)/1 'Archivo Black', sans-serif; letter-spacing: -.05em; }
 .uk-hero-stats dt { color: rgba(255,255,255,.7); font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+
+/* International hero: medalist deck. Desktop stacks and cross-fades; smaller screens get a scroll row under the stats. */
+.uk-medal { min-width: 0; }
+.uk-medal-kicker { margin: 0 0 12px; color: #b6caff; font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+.uk-medal-deck { margin: 0; padding: 0; list-style: none; }
+.uk-medal-card { display: block; overflow: hidden; border: 1px solid rgba(255,255,255,.18); border-radius: 18px; background: rgba(9,23,47,.72); color: white; text-decoration: none; box-shadow: 0 24px 60px rgba(0,0,0,.35); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.uk-medal-card:focus-visible { outline: 2px solid #7c95ff; outline-offset: 3px; }
+.uk-medal-media { position: relative; display: block; overflow: hidden; aspect-ratio: calc(1.7778 / (1 - var(--crop-top, 0))); background: var(--navy-deep); }
+.uk-medal-media .uk-crop-img { object-position: 50% 100%; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.uk-medal-card:hover .uk-medal-media .uk-crop-img { transform: scale(1.04); }
+.uk-medal-cap { display: block; padding: 14px 18px 16px; }
+.uk-medal-country { display: block; color: #b6caff; font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.uk-medal-cap strong { display: block; margin-top: 6px; font: 17px/1.15 'Archivo Black', sans-serif; letter-spacing: -.01em; text-transform: uppercase; }
+.uk-medal-honor { display: flex; align-items: center; gap: 8px; margin-top: 6px; color: rgba(255,255,255,.82); font-size: 13px; font-weight: 600; }
+.uk-medal-honor::before { content: ''; flex: none; width: 7px; height: 7px; background: var(--electric); }
+.uk-medal-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 14px; }
+.uk-medal-dots { display: flex; gap: 6px; }
+.uk-medal-dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: rgba(255,255,255,.35); cursor: pointer; transition: width .3s ease, background .3s ease; }
+.uk-medal-dot[aria-pressed="true"] { width: 24px; background: white; }
+.uk-medal-pause { display: inline-grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 1px solid rgba(255,255,255,.3); border-radius: 999px; background: transparent; color: white; cursor: pointer; }
+.uk-medal-dot:focus-visible, .uk-medal-pause:focus-visible { outline: 2px solid #7c95ff; outline-offset: 3px; }
+
+@media (min-width: 1081px) {
+  .uk-sub-hero-inner.has-aside {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(300px, 27vw, 390px);
+    grid-template-areas: "eyebrow eyebrow" "title title" "marquee aside" "stats aside" "sub aside";
+    grid-template-rows: auto auto auto auto 1fr;
+    column-gap: clamp(32px, 4vw, 72px);
+  }
+  .has-aside > .uk-eyebrow { grid-area: eyebrow; }
+  .has-aside > h1 { grid-area: title; }
+  .has-aside > .uk-marquee { grid-area: marquee; }
+  .has-aside > .uk-hero-stats { grid-area: stats; }
+  .has-aside > .uk-sub-hero-sub { grid-area: sub; }
+  .has-aside > .uk-medal { grid-area: aside; align-self: end; margin-top: 26px; }
+  .uk-medal-deck { position: relative; display: grid; }
+  .uk-medal-deck::before, .uk-medal-deck::after { content: ''; position: absolute; left: 50%; z-index: 0; height: 100%; border: 1px solid rgba(255,255,255,.14); border-radius: 18px; background: rgba(9,23,47,.5); transform: translateX(-50%); }
+  .uk-medal-deck::before { top: 10px; width: 94%; }
+  .uk-medal-deck::after { top: 20px; width: 88%; opacity: .6; z-index: -1; }
+  .uk-medal-item { position: relative; z-index: 1; grid-area: 1 / 1; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .9s ease, transform .9s ease, visibility 0s linear .9s; }
+  .uk-medal-item.is-active { z-index: 2; opacity: 1; visibility: visible; transform: none; transition: opacity .9s ease, transform .9s ease, visibility 0s; }
+  .uk-medal-controls { margin-top: 30px; }
+}
+@media (max-width: 1080px) {
+  .uk-medal { margin-top: 28px; }
+  .uk-medal-deck { display: flex; gap: 12px; overflow-x: auto; margin: 0 -6vw; padding: 2px 6vw 10px; scroll-snap-type: x mandatory; scroll-padding-left: 6vw; scrollbar-width: none; }
+  .uk-medal-deck::-webkit-scrollbar { display: none; }
+  .uk-medal-item { flex: 0 0 min(76vw, 300px); scroll-snap-align: start; }
+  .uk-medal-controls { display: none; }
+}
 
 .uk-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 40px; }
 .uk-chip {

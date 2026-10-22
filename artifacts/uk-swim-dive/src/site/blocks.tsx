@@ -14,8 +14,8 @@ export function SubpageLayout({
   heroPosition,
   heroClassName = '',
   heroExtra,
-  recruitFormUrl,
-  recruitFormLabel,
+  heroAside,
+  teammatesUrl,
   recruitKicker,
   children,
 }: {
@@ -28,8 +28,9 @@ export function SubpageLayout({
   heroPosition?: string;
   heroClassName?: string;
   heroExtra?: ReactNode;
-  recruitFormUrl?: string;
-  recruitFormLabel?: string;
+  /** Shown to the right of the stats and intro on desktop, and under them on smaller screens. */
+  heroAside?: ReactNode;
+  teammatesUrl?: string;
   recruitKicker?: string;
   children: ReactNode;
 }) {
@@ -46,18 +47,19 @@ export function SubpageLayout({
           style={heroPosition ? { objectPosition: heroPosition } : undefined}
         />
         <div className="uk-sub-hero-shade" aria-hidden="true" />
-        <div className="uk-sub-hero-inner">
+        <div className={`uk-sub-hero-inner ${heroAside ? 'has-aside' : ''}`}>
           <div className="uk-eyebrow"><span />{eyebrow}</div>
           <h1 id="sub-hero-title">
             {heading}
             <em>{accent}</em>
           </h1>
           {heroExtra}
+          {heroAside}
           <p className="uk-sub-hero-sub">{sub}</p>
         </div>
       </section>
       {children}
-      <RecruitCta formUrl={recruitFormUrl} formLabel={recruitFormLabel} kicker={recruitKicker} />
+      <RecruitCta teammatesUrl={teammatesUrl} kicker={recruitKicker} />
       <SiteFooter />
     </main>
   );
