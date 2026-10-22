@@ -254,6 +254,16 @@ export const featureCardSide: Record<string, 'left' | 'right'> = {
   'levi-sandidge': 'right',
 };
 
+// Hero feature on /international: senior-level international athletes and the honor shown on each card.
+// Every honor here is copied from that athlete's honors list above.
+export const heroMedalists: Array<{ slug: string; honor: string }> = [
+  { slug: 'esteban-nunez-del-prado', honor: '2024 Olympic Games' },
+  { slug: 'max-berg', honor: '2023 World Championships' },
+  { slug: 'adomas-gatulis', honor: '2023 European Championships' },
+  { slug: 'dziugas-miskinis', honor: '2024 European Aquatics Championships' },
+  { slug: 'fernanda-de-goeij', honor: '2019 Pan American Games' },
+];
+
 export function cropStyle(slug: string): CSSProperties | undefined {
   const framing = flagFraming[slug];
   if (!framing) return undefined;

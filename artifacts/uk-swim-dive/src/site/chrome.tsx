@@ -3,7 +3,7 @@ import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { FaFacebookF, FaInstagram, FaTiktok, FaXTwitter } from 'react-icons/fa6';
 import { Link, useLocation } from 'wouter';
 import ukLogoMark from '@assets/uk-logo-mark.png';
-import { COACH_EMAIL_HREF, navItems } from './config';
+import { COACH_EMAIL_HREF, navItems, TEAM_URL, VISIT_EMAIL_HREF } from './config';
 import { photos } from './photos';
 
 export function usePageTitle(title: string) {
@@ -126,13 +126,12 @@ export function Header() {
   );
 }
 
+// The shared "Next Step" block. Written for recruits who are already talking with the staff.
 export function RecruitCta({
-  formUrl = '',
-  formLabel = '',
+  teammatesUrl = '',
   kicker = 'Recruiting',
 }: {
-  formUrl?: string;
-  formLabel?: string;
+  teammatesUrl?: string;
   kicker?: string;
 }) {
   return (
@@ -148,18 +147,19 @@ export function RecruitCta({
         </div>
         <div className="uk-recruit-copy">
           <span className="uk-kicker">{kicker}</span>
-          <h2 id="recruit-title">Next Step: <span>Let&apos;s Set Up a Call</span></h2>
-          <p>Ready to talk about your future in the pool? Coach Bret and our staff want to hear your story, your times, and your goals. Then we will help you picture what it looks like to chase them as a Wildcat.</p>
+          <h2 id="recruit-title">Next Step: <span>See It in Person</span></h2>
+          <p>Already in touch with our staff? Now see it for yourself. Walk the deck at Lancaster, meet the team, and picture your next four years in Lexington.</p>
           <div className="uk-recruit-actions">
-            <a className="uk-primary-button" href={COACH_EMAIL_HREF} data-testid="link-contact-recruit">
-              Email Coach Bret <ArrowUpRight size={16} />
+            <a className="uk-primary-button" href={VISIT_EMAIL_HREF} data-testid="link-plan-visit">
+              Plan Your Visit to Lexington <ArrowUpRight size={16} />
             </a>
-            {formUrl && (
-              <a className="uk-pill-white" href={formUrl} data-testid="link-recruit-form">
-                {formLabel} <ArrowUpRight size={15} />
-              </a>
-            )}
+            <a className="uk-pill-white" href={teammatesUrl || TEAM_URL} data-testid="link-meet-teammates">
+              Meet Your Future Teammates <ArrowUpRight size={15} />
+            </a>
           </div>
+          <a className="uk-recruit-ask" href={COACH_EMAIL_HREF} data-testid="link-contact-recruit">
+            Ask Coach Bret a Question <ArrowUpRight size={14} aria-hidden="true" />
+          </a>
         </div>
       </div>
     </section>

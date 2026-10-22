@@ -12,6 +12,7 @@ import {
   languageCodes,
   type Athlete,
 } from '@/site/international';
+import { MedalistDeck } from '@/site/medalist-deck';
 import { photos } from '@/site/photos';
 
 const marqueePhrases = [
@@ -216,6 +217,7 @@ export default function InternationalPage() {
           <HeroStats />
         </>
       }
+      heroAside={<MedalistDeck />}
       recruitKicker="International recruits"
     >
       <Roster />

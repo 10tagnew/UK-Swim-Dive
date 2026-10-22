@@ -1,5 +1,5 @@
 import { GalleryStrip, QuoteBlock, SubpageLayout, Trajectory } from '@/site/blocks';
-import { MENS_RECRUIT_FORM_URL } from '@/site/config';
+import { MENS_ROSTER_URL } from '@/site/config';
 import { photos } from '@/site/photos';
 import { Classroom, ProgramPhilosophy } from '@/site/program';
 
@@ -13,8 +13,7 @@ export default function MensPage() {
       sub="From zero NCAA points to 52 in two seasons. The climb is the point."
       hero={photos.swimmerScreamCloseup}
       heroPosition="60% 30%"
-      recruitFormUrl={MENS_RECRUIT_FORM_URL}
-      recruitFormLabel="Men's Recruit Form"
+      teammatesUrl={MENS_ROSTER_URL}
     >
       <QuoteBlock
         photo={photos.relayTeamWalkout}
