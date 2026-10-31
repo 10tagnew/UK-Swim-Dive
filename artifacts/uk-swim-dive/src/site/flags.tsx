@@ -60,6 +60,72 @@ const flags: Record<string, ReactNode> = {
       <path d="M12.4 11.2Q15 14.4 17.6 11.2" fill="none" stroke="#006847" strokeWidth="0.9" />
     </>
   ),
+  EE: (
+    <>
+      <rect width="30" height="20" fill="#0072ce" />
+      <rect y="6.67" width="30" height="13.33" fill="#000" />
+      <rect y="13.34" width="30" height="6.66" fill="#fff" />
+    </>
+  ),
+  PE: (
+    <>
+      <rect width="30" height="20" fill="#d91023" />
+      <rect x="10" width="10" height="20" fill="#fff" />
+    </>
+  ),
+  IT: (
+    <>
+      <rect width="30" height="20" fill="#fff" />
+      <rect width="10" height="20" fill="#009246" />
+      <rect x="20" width="10" height="20" fill="#ce2b37" />
+    </>
+  ),
+  LV: (
+    <>
+      <rect width="30" height="20" fill="#9e3039" />
+      <rect y="8" width="30" height="4" fill="#fff" />
+    </>
+  ),
+  HU: (
+    <>
+      <rect width="30" height="20" fill="#fff" />
+      <rect width="30" height="6.67" fill="#ce2939" />
+      <rect y="13.34" width="30" height="6.66" fill="#477050" />
+    </>
+  ),
+  GB: (
+    <>
+      <rect width="30" height="20" fill="#012169" />
+      <path d="M0 0 30 20M30 0 0 20" stroke="#fff" strokeWidth="4" />
+      <path d="M0 0 30 20M30 0 0 20" stroke="#c8102e" strokeWidth="1.4" />
+      <path d="M15 0v20M0 10h30" stroke="#fff" strokeWidth="6" />
+      <path d="M15 0v20M0 10h30" stroke="#c8102e" strokeWidth="3.4" />
+    </>
+  ),
+  ZA: (
+    <>
+      <rect width="30" height="20" fill="#002395" />
+      <rect width="30" height="10" fill="#de3831" />
+      <path d="M0 2 10 10 0 18M10 10h20" fill="none" stroke="#fff" strokeWidth="6.4" />
+      <path d="M0 2 10 10 0 18M10 10h20" fill="none" stroke="#007a4d" strokeWidth="3.6" />
+      <path d="M0 3.4 7 10 0 16.6Z" fill="#ffb612" />
+      <path d="M0 5.6 4.6 10 0 14.4Z" fill="#000" />
+    </>
+  ),
+  AU: (
+    <>
+      <rect width="30" height="20" fill="#00008b" />
+      <rect width="15" height="10" fill="#012169" />
+      <path d="M0 0 15 10M15 0 0 10" stroke="#fff" strokeWidth="1.8" />
+      <path d="M7.5 0v10M0 5h15" stroke="#fff" strokeWidth="3" />
+      <path d="M7.5 0v10M0 5h15" stroke="#cc142b" strokeWidth="1.6" />
+      <circle cx="7.5" cy="15.5" r="2" fill="#fff" />
+      <circle cx="22" cy="4" r="1" fill="#fff" />
+      <circle cx="26" cy="9" r="1" fill="#fff" />
+      <circle cx="22" cy="15" r="1" fill="#fff" />
+      <circle cx="18" cy="9.5" r="1" fill="#fff" />
+    </>
+  ),
   US: (
     <>
       <rect width="30" height="20" fill="#b22234" />
