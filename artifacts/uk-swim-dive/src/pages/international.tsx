@@ -25,6 +25,10 @@ const marqueePhrases = [
 ];
 
 const countries = Array.from(new Set(internationalAthletes.map((athlete) => athlete.country))).sort();
+// Athletes with a senior World Championships (long or short course) in their honors; junior and university games do not count.
+const worldChampionshipAthletes = internationalAthletes.filter((athlete) =>
+  athlete.honors.some((honor) => /World (Aquatics )?(Short Course )?Championships/.test(honor) && !/Junior|University/.test(honor)),
+).length;
 
 function HeroMarquee() {
   const copies = [0, 1];
@@ -49,9 +53,9 @@ function HeroMarquee() {
 function HeroStats() {
   return (
     <dl className="uk-hero-stats">
-      <div><dt>Nations represented</dt><dd>8</dd></div>
-      <div><dt>International-level athletes</dt><dd>15</dd></div>
-      <div><dt>2024 Olympian</dt><dd>1</dd></div>
+      <div><dt>Nations represented</dt><dd>{countries.length}</dd></div>
+      <div><dt>International-level athletes</dt><dd>{internationalAthletes.length}</dd></div>
+      <div><dt>Senior World Championships athletes</dt><dd>{worldChampionshipAthletes}</dd></div>
     </dl>
   );
 }
@@ -208,7 +212,7 @@ export default function InternationalPage() {
       eyebrow="International"
       heading="From Lexington"
       accent="to the world."
-      sub="Olympians, national team members and junior internationals chose Kentucky. Here is why."
+      sub="World Championships swimmers, national team members and junior internationals chose Kentucky. Here is why."
       hero={photos.poolRaceBanners}
       heroClassName="uk-sub-hero--dark"
       heroExtra={

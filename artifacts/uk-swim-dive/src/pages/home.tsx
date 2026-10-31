@@ -216,7 +216,7 @@ export default function Home() {
                   Disrupting the <span>World Stage</span>
                 </Link>
               </h2>
-              <p className="uk-global-sub">Olympians and national team medalists from eight nations came to Kentucky to shake up the sport. Meet them.</p>
+              <p className="uk-global-sub">World Championships swimmers and national team medalists from {new Set(worldAthletes.map((athlete) => athlete.country)).size} nations came to Kentucky to shake up the sport. Meet them.</p>
             </div>
             <div className="uk-global-nav">
               <button type="button" onClick={() => scrollGlobalTrack(-1)} aria-label="Scroll to previous athlete" data-testid="button-global-prev">
