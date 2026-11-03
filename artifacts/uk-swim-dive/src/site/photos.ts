@@ -63,6 +63,13 @@ import intlFlagGabrielPerdigao from '@assets/intl-flag-gabriel-perdigao-brazil.w
 import intlFlagGiannaKenrick from '@assets/intl-flag-gianna-kenrick-usa.webp';
 import intlFlagZalikaMethula from '@assets/intl-flag-zalika-methula-south-africa.webp';
 import intlFlagZeaWetzlaugk from '@assets/intl-flag-zea-wetzlaugk-hungary.webp';
+import intlFlagAdomasGatulis from '@assets/intl-flag-adomas-gatulis-lithuania.webp';
+import intlFlagAveryGiese from '@assets/intl-flag-avery-giese-usa.webp';
+import intlFlagDariusTrenchea from '@assets/intl-flag-darius-trenchea-romania.webp';
+import intlFlagEstebanNunezDelPrado from '@assets/intl-flag-esteban-nunez-del-prado-bolivia.webp';
+import intlFlagFalemanaTuufui from '@assets/intl-flag-falemana-tuufui-france.webp';
+import intlHeadshotAdomasGatulis from '@assets/intl-headshot-adomas-gatulis.webp';
+import intlHeadshotEstebanNunezDelPrado from '@assets/intl-headshot-esteban-nunez-del-prado.webp';
 
 export type Photo = { src: string; alt: string };
 
@@ -147,4 +154,11 @@ export const photos = {
   intlFlagGiannaKenrick: { src: intlFlagGiannaKenrick, alt: 'Gianna Kenrick posing in front of the American flag' },
   intlFlagZalikaMethula: { src: intlFlagZalikaMethula, alt: 'Zalika Methula posing in front of the South African flag' },
   intlFlagZeaWetzlaugk: { src: intlFlagZeaWetzlaugk, alt: 'Zea Wetzlaugk posing in front of the Hungarian flag' },
+  intlFlagAdomasGatulis: { src: intlFlagAdomasGatulis, alt: 'Adomas Gatulis posing in front of the Lithuanian flag' },
+  intlFlagAveryGiese: { src: intlFlagAveryGiese, alt: 'Avery Giese posing in front of the American flag' },
+  intlFlagDariusTrenchea: { src: intlFlagDariusTrenchea, alt: 'Darius Trenchea posing in front of the Romanian flag' },
+  intlFlagEstebanNunezDelPrado: { src: intlFlagEstebanNunezDelPrado, alt: 'Esteban Nunez del Prado posing in front of the Bolivian flag' },
+  intlFlagFalemanaTuufui: { src: intlFlagFalemanaTuufui, alt: 'Falemana Tuufui posing in front of the French flag' },
+  intlHeadshotAdomasGatulis: { src: intlHeadshotAdomasGatulis, alt: 'Studio headshot of Adomas Gatulis in a Kentucky team jacket' },
+  intlHeadshotEstebanNunezDelPrado: { src: intlHeadshotEstebanNunezDelPrado, alt: 'Studio headshot of Esteban Nunez del Prado in a Kentucky team jacket' },
 } satisfies Record<string, Photo>;

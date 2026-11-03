@@ -126,6 +126,13 @@ const flags: Record<string, ReactNode> = {
       <circle cx="18" cy="9.5" r="1" fill="#fff" />
     </>
   ),
+  RO: (
+    <>
+      <rect width="30" height="20" fill="#ce1126" />
+      <rect width="20" height="20" fill="#fcd116" />
+      <rect width="10" height="20" fill="#002b7f" />
+    </>
+  ),
   US: (
     <>
       <rect width="30" height="20" fill="#b22234" />

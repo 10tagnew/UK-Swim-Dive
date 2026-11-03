@@ -16,6 +16,54 @@ export type Athlete = {
 
 export const internationalAthletes: Athlete[] = [
   {
+    slug: 'esteban-nunez-del-prado',
+    name: 'Esteban Nunez del Prado Pizarro',
+    country: 'Bolivia',
+    countryCode: 'BO',
+    headshot: photos.intlHeadshotEstebanNunezDelPrado,
+    flagGraphic: photos.intlFlagEstebanNunezDelPrado,
+    honors: [
+      '2024 Olympic Games',
+      '2024 World Aquatics Championships',
+      '2023 World Aquatics Championships',
+      '2023 Pan American Games',
+      '2022 World Short Course Championships',
+    ],
+    quote:
+      "I chose Kentucky because it's a perfect place to combine my swimming career and personal development. The team and coaching staff made me feel welcome and I am excited to be a part of this amazing team.",
+  },
+  {
+    slug: 'falemana-tuufui',
+    name: 'Falemana Tuufui',
+    country: 'France',
+    countryCode: 'FR',
+    flagGraphic: photos.intlFlagFalemanaTuufui,
+    honors: [
+      '2025 U23 European Championships',
+      '2023 LEN European Junior Championships',
+      '2022 European Junior Swimming Championships',
+      '2022 European Youth Olympic Festival',
+    ],
+    quote: 'I chose Kentucky because the goals of the team fit perfectly with mine. I know it is a place I can trust and thrive.',
+    quoteNative:
+      "J'ai choisi Kentucky parce que j'avais et j'ai toujours l'impression que votre projet correspond parfaitement au mien, et je sens aussi que vous êtes une grosse équipe sur qui je peux compter, et bien sûr vous pourrez aussi compter sur moi.",
+    nativeLanguage: 'French',
+  },
+  {
+    slug: 'adomas-gatulis',
+    name: 'Adomas Gatulis',
+    country: 'Lithuania',
+    countryCode: 'LT',
+    headshot: photos.intlHeadshotAdomasGatulis,
+    flagGraphic: photos.intlFlagAdomasGatulis,
+    honors: ['2023 European Championships', '2023 European Junior Championships'],
+    quote:
+      'The best thing about studying and swimming at Kentucky is the people surrounding me in the pool. I would describe our team as hungry, because most people here are hungry for success.',
+    quoteNative:
+      'Geriausias dalykas studijuojant ir plaukiant Kentukyje yra mane supantys žmonės baseine. Kentukis padėjo toliau siekti užsibrėžtų tikslų. Mūsų komandą apibūdinčiau kaip „Alkaną“, nes dauguma žmonių yra alkani sėkmės.',
+    nativeLanguage: 'Lithuanian',
+  },
+  {
     slug: 'lysander-osman',
     name: 'Lysander Osman',
     country: 'France',
@@ -204,6 +252,18 @@ export const internationalAthletes: Athlete[] = [
       "I love the team environment and the atmosphere that's created by both the coaches and athletes.",
   },
   {
+    slug: 'darius-trenchea',
+    name: 'Darius Trenchea',
+    country: 'Romania',
+    countryCode: 'RO',
+    flagGraphic: photos.intlFlagDariusTrenchea,
+    honors: ['2025 World Junior Championships', '2025 European Junior Championships'],
+    quote: 'My favorite thing about Kentucky is the very united team that we have, and we enjoy being together.',
+    quoteNative:
+      'Oportunitatea de a îmi îmbunătăți înotul și programul de studii relevant plăcerii mele. Lucrul favorit este echipa foarte unită și faptul că ne înțelegem foarte bine între noi.',
+    nativeLanguage: 'Romanian',
+  },
+  {
     slug: 'margherita-balli',
     name: 'Margherita Balli',
     country: 'Italy',
@@ -233,6 +293,14 @@ export const internationalAthletes: Athlete[] = [
     country: 'Brazil',
     countryCode: 'BR',
     flagGraphic: photos.intlFlagGabrielPerdigao,
+    honors: [],
+  },
+  {
+    slug: 'avery-giese',
+    name: 'Avery Giese',
+    country: 'United States',
+    countryCode: 'US',
+    flagGraphic: photos.intlFlagAveryGiese,
     honors: [],
   },
   {
@@ -266,6 +334,7 @@ export const languageCodes: Record<string, string> = {
   French: 'fr',
   Lithuanian: 'lt',
   Spanish: 'es',
+  Romanian: 'ro',
 };
 
 // Framing overrides for flag graphics whose printed text should stay out of frame.
@@ -274,6 +343,10 @@ export const flagFraming: Record<string, { cropTop: number }> = {};
 
 // Side of the "In Their Words" quote card, opposite the name printed on each flag graphic.
 export const featureCardSide: Record<string, 'left' | 'right'> = {
+  'esteban-nunez-del-prado': 'left',
+  'falemana-tuufui': 'left',
+  'adomas-gatulis': 'left',
+  'darius-trenchea': 'left',
   'lysander-osman': 'left',
   'justin-peresse': 'left',
   'dziugas-miskinis': 'right',
@@ -297,6 +370,7 @@ export const featureCardSide: Record<string, 'left' | 'right'> = {
 // Hero feature on /international: senior-level international athletes and the honor shown on each card.
 // Every honor here is copied from that athlete's honors list above.
 export const heroMedalists: Array<{ slug: string; honor: string }> = [
+  { slug: 'esteban-nunez-del-prado', honor: '2024 Olympic Games' },
   { slug: 'stephan-steverink', honor: '2025 World Championships, Singapore' },
   { slug: 'yasmin-silva', honor: '2025 World Aquatics Championships' },
   { slug: 'nikolass-deicmans', honor: '2025 World Championships' },
