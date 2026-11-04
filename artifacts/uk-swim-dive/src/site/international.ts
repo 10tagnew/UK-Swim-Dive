@@ -286,6 +286,89 @@ export const internationalAthletes: Athlete[] = [
       'He elegido Kentucky porque es un sitio en el que puedo disfrutar nadando y a la vez estudiar la carrera que me gusta. Además, cuando hablé con los coaches me transmitieron muy buenas sensaciones y sentí que podía aportar aspectos positivos al equipo. Me encanta el equipo que tenemos, porque todos tenemos un mismo objetivo y eso se puede ver en cada competición por cómo nos animamos y apoyamos entre todos. Mi parte favorita de estar aquí en Kentucky es poder conocer a gente nueva y poder disfrutar el camino con los amigos que haces.',
     nativeLanguage: 'Spanish',
   },
+  // Returning athletes kept on the page while Jordan sends the rest of his graphics (see his 10/26 email).
+  // Confirm with Jordan before removing anyone: he said athletes without a new graphic graduated or transferred.
+  {
+    slug: 'fernanda-de-goeij',
+    name: 'Fernanda de Goeij',
+    country: 'Brazil',
+    countryCode: 'BR',
+    headshot: photos.intlHeadshotFernandaDeGoeij,
+    flagGraphic: photos.intlFlagFernandaDeGoeij,
+    honors: ['2019 Pan American Games', '2018 Summer Youth Olympics', '2018 South American Games', '2017 FINA World Junior Championships'],
+    quote:
+      'Kentucky is special to me because it is a place with amazing people, teammates, and coaches. It reminds me every day to be grateful and happy to be here.',
+    quoteNative:
+      'Kentucky é especial para mim porque é um lugar com pessoas incríveis, companheiros de equipe e treinadores. Isso me lembra todos os dias de ser grata e feliz por estar aqui.',
+    nativeLanguage: 'Portuguese',
+  },
+  {
+    slug: 'caue-gluck',
+    name: 'Caue Gluck',
+    country: 'Brazil',
+    countryCode: 'BR',
+    flagGraphic: photos.intlFlagCaueGluck,
+    honors: [],
+    quote:
+      'I chose Kentucky because it felt like home. For me, feeling that you belong to a place is very important, and I feel this here. Also, all the coaches always care about our well-being and want our best.',
+    quoteNative:
+      'Eu me senti em casa. Para mim o sentimento de pertencimento a um lugar é muito importante e eu sinto isso aqui. Também, todos os técnicos sempre se preocupam com nosso bem-estar e querem o nosso melhor.',
+    nativeLanguage: 'Portuguese',
+  },
+  {
+    slug: 'sharon-guerrero-cho',
+    name: 'Sharon Guerrero Cho',
+    country: 'Mexico',
+    countryCode: 'MX',
+    headshot: photos.intlHeadshotSharonGuerreroCho,
+    honors: [
+      '2025 World Championships',
+      '2025 Pan Am Aquatics',
+      '2025 Junior Pan American Games',
+      '2024 World Junior Championships',
+      '2024 CCCAN Monterrey',
+      '2023 CCCAN San Salvador',
+    ],
+  },
+  {
+    slug: 'max-berg',
+    name: 'Max Berg',
+    country: 'France',
+    countryCode: 'FR',
+    headshot: photos.intlHeadshotMaxBerg,
+    flagGraphic: photos.intlFlagMaxBerg,
+    honors: ['2023 World Championships'],
+    quote:
+      "The Kentucky swim team is special to me because I am constantly surrounded by good people who work hard with a common goal. We all have ambition, but we know it is crucial to preserve everyone's well-being to move forward step by step. I feel like this team keeps improving, and I'm proud to contribute to it. My goal is to see Kentucky in the top 15 in the country. It gives me the feeling of being part of something bigger than me, a common project where each swimmer leaves their mark.",
+  },
+  {
+    slug: 'jonathan-rom',
+    name: 'Jonathan Rom',
+    country: 'Israel',
+    countryCode: 'IL',
+    headshot: photos.intlHeadshotJonathanRom,
+    flagGraphic: photos.intlFlagJonathanRom,
+    honors: [
+      '2022 Maccabi Games',
+      '2017 Maccabi Games',
+      '2017 European Junior Championships',
+      '2017 Mediterranean Championships',
+      '2016 Mediterranean Championships',
+    ],
+    quote:
+      'I have been here only a little over two months and I can already feel the dedication, motivation and will from our coaches to change this program for the better. Something a lot of places lack these days.',
+  },
+  {
+    slug: 'chris-nagy',
+    name: 'Chris Nagy',
+    country: 'United States',
+    countryCode: 'US',
+    headshot: photos.intlHeadshotChrisNagy,
+    flagGraphic: photos.intlFlagChrisNagy,
+    honors: ['2023 World University Games'],
+    quote:
+      'Kentucky is special to me because of the people. It really does feel like a second family. I can be open and honest with my teammates, and they know they can be the same with me. My coaches do everything they can to support me, and I do everything I can to exceed their expectations.',
+  },
   {
     // Graphic only: no roster form was received for this athlete yet.
     slug: 'gabriel-perdigao',
@@ -343,15 +426,20 @@ export const flagFraming: Record<string, { cropTop: number }> = {};
 
 // Side of the "In Their Words" quote card, opposite the name printed on each flag graphic.
 export const featureCardSide: Record<string, 'left' | 'right'> = {
+  'fernanda-de-goeij': 'right',
+  'caue-gluck': 'right',
+  'max-berg': 'left',
+  'jonathan-rom': 'left',
+  'chris-nagy': 'left',
   'esteban-nunez-del-prado': 'left',
   'falemana-tuufui': 'left',
   'adomas-gatulis': 'left',
   'darius-trenchea': 'left',
   'lysander-osman': 'left',
   'justin-peresse': 'left',
-  'dziugas-miskinis': 'right',
+  'dziugas-miskinis': 'left',
   'javier-lopez': 'left',
-  'carson-hick': 'right',
+  'carson-hick': 'left',
   'levi-sandidge': 'left',
   'siim-keskula': 'left',
   'filippo-bertoni': 'left',

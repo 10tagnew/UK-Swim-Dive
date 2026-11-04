@@ -20,3 +20,6 @@ export const navItems = [
   { label: 'Facilities', href: '/facilities' },
   { label: 'Coaches', href: '/coaches' },
 ];
+
+export const SWIMSWAM_RELAY_URL =
+  'https://swimswam.com/kentucky-men-earn-first-top-eight-ncaas-relay-finish-since-2010-drop-three-seconds-in-one-season/';

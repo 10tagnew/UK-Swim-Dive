@@ -70,6 +70,26 @@ import intlFlagEstebanNunezDelPrado from '@assets/intl-flag-esteban-nunez-del-pr
 import intlFlagFalemanaTuufui from '@assets/intl-flag-falemana-tuufui-france.webp';
 import intlHeadshotAdomasGatulis from '@assets/intl-headshot-adomas-gatulis.webp';
 import intlHeadshotEstebanNunezDelPrado from '@assets/intl-headshot-esteban-nunez-del-prado.webp';
+import intlHeadshotFernandaDeGoeij from '@assets/intl-headshot-fernanda-de-goeij.webp';
+import intlHeadshotMaxBerg from '@assets/intl-headshot-max-berg.webp';
+import intlHeadshotChrisNagy from '@assets/intl-headshot-chris-nagy.webp';
+import intlHeadshotJonathanRom from '@assets/intl-headshot-jonathan-rom.webp';
+import intlHeadshotSharonGuerreroCho from '@assets/intl-headshot-sharon-guerrero-cho.webp';
+import intlFlagFernandaDeGoeij from '@assets/intl-flag-fernanda-de-goeij-brazil.webp';
+import intlFlagMaxBerg from '@assets/intl-flag-max-berg-france.webp';
+import intlFlagChrisNagy from '@assets/intl-flag-chris-nagy-usa.webp';
+import intlFlagJonathanRom from '@assets/intl-flag-jonathan-rom-israel.webp';
+import intlFlagCaueGluck from '@assets/intl-flag-caue-gluck-brazil.webp';
+import intlSuccessFilippo1 from '@assets/intl-success-filippo-1.webp';
+import intlSuccessFilippo2 from '@assets/intl-success-filippo-2.webp';
+import intlSuccessGabby1 from '@assets/intl-success-gabby-1.webp';
+import intlSuccessKarringtonHansen1 from '@assets/intl-success-karrington-hansen-1.webp';
+import intlSuccessLevi1 from '@assets/intl-success-levi-1.webp';
+import intlSuccessLysander1 from '@assets/intl-success-lysander-1.webp';
+import intlSuccessStephan1 from '@assets/intl-success-stephan-1.webp';
+import intlSuccessStephan2 from '@assets/intl-success-stephan-2.webp';
+import intlSuccessYasminSilva1 from '@assets/intl-success-yasmin-silva-1.webp';
+import intlSuccessYasminSilva2 from '@assets/intl-success-yasmin-silva-2.webp';
 
 export type Photo = { src: string; alt: string };
 
@@ -161,4 +181,24 @@ export const photos = {
   intlFlagFalemanaTuufui: { src: intlFlagFalemanaTuufui, alt: 'Falemana Tuufui posing in front of the French flag' },
   intlHeadshotAdomasGatulis: { src: intlHeadshotAdomasGatulis, alt: 'Studio headshot of Adomas Gatulis in a Kentucky team jacket' },
   intlHeadshotEstebanNunezDelPrado: { src: intlHeadshotEstebanNunezDelPrado, alt: 'Studio headshot of Esteban Nunez del Prado in a Kentucky team jacket' },
+  intlHeadshotFernandaDeGoeij: { src: intlHeadshotFernandaDeGoeij, alt: 'Studio headshot of Fernanda de Goeij in a Kentucky team jacket' },
+  intlHeadshotMaxBerg: { src: intlHeadshotMaxBerg, alt: 'Studio headshot of Max Berg in a Kentucky team jacket' },
+  intlHeadshotChrisNagy: { src: intlHeadshotChrisNagy, alt: 'Studio headshot of Chris Nagy in a Kentucky team jacket' },
+  intlHeadshotJonathanRom: { src: intlHeadshotJonathanRom, alt: 'Studio headshot of Jonathan Rom in a Kentucky team jacket' },
+  intlHeadshotSharonGuerreroCho: { src: intlHeadshotSharonGuerreroCho, alt: 'Studio headshot of Sharon Guerrero Cho in a Kentucky team jacket' },
+  intlFlagFernandaDeGoeij: { src: intlFlagFernandaDeGoeij, alt: 'Fernanda de Goeij posing in front of the Brazilian flag' },
+  intlFlagMaxBerg: { src: intlFlagMaxBerg, alt: 'Max Berg posing in front of the French flag' },
+  intlFlagChrisNagy: { src: intlFlagChrisNagy, alt: 'Chris Nagy posing in front of the American flag' },
+  intlFlagJonathanRom: { src: intlFlagJonathanRom, alt: 'Jonathan Rom posing in front of the Israeli flag' },
+  intlFlagCaueGluck: { src: intlFlagCaueGluck, alt: 'Caue Gluck posing in front of the Brazilian flag' },
+  intlSuccessFilippo1: { src: intlSuccessFilippo1, alt: 'Filippo Bertoni celebrating with his medal on an international podium' },
+  intlSuccessFilippo2: { src: intlSuccessFilippo2, alt: 'Filippo Bertoni on the World Junior Championships podium' },
+  intlSuccessGabby1: { src: intlSuccessGabby1, alt: 'Gabrielle Idle-Beavers holding up her medal on the podium' },
+  intlSuccessKarringtonHansen1: { src: intlSuccessKarringtonHansen1, alt: 'Karrington Hansen with her Open Water Junior World Championships bronze medal' },
+  intlSuccessLevi1: { src: intlSuccessLevi1, alt: 'Levi Sandidge on the podium at the FISU America Games in Lima' },
+  intlSuccessLysander1: { src: intlSuccessLysander1, alt: 'Lysander Osman receiving his medal' },
+  intlSuccessStephan1: { src: intlSuccessStephan1, alt: 'Stephan Steverink on the podium at the South American Games in Santa Fe' },
+  intlSuccessStephan2: { src: intlSuccessStephan2, alt: 'Stephan Steverink with his medal at the Pan American Junior Games' },
+  intlSuccessYasminSilva1: { src: intlSuccessYasminSilva1, alt: 'Yasmin Silva holding her medal for Peru' },
+  intlSuccessYasminSilva2: { src: intlSuccessYasminSilva2, alt: 'Yasmin Silva smiling on the podium with her medal' },
 } satisfies Record<string, Photo>;
