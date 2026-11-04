@@ -1,5 +1,5 @@
-import { GalleryStrip, QuoteBlock, SubpageLayout, Trajectory } from '@/site/blocks';
-import { MENS_ROSTER_URL } from '@/site/config';
+import { Figures, GalleryStrip, QuoteBlock, Section, SubpageLayout, Trajectory } from '@/site/blocks';
+import { MENS_ROSTER_URL, SWIMSWAM_RELAY_URL } from '@/site/config';
 import { photos } from '@/site/photos';
 import { Classroom, ProgramPhilosophy } from '@/site/program';
 
@@ -57,6 +57,24 @@ export default function MensPage() {
           },
         ]}
       />
+      <Section tone="white" labelledBy="relay-title">
+        <h2 id="relay-title" className="uk-sec-title">First NCAA top-eight relay <span>since 2010.</span></h2>
+        <p className="uk-sec-lead">
+          At the 2026 NCAA Championships, Lysander Osman, Adomas Gatulis, Javier Lopez and Falemana Tuufui swam the 200 medley relay to an 8th place finish in 1:22.00. The program record was 1:24.98 at the start of the season. They took about three seconds off it in one year, and the relay credits sprint coach Cauli Bedran for the jump.
+        </p>
+        <Figures
+          items={[
+            { value: '8th', label: '200 medley relay at 2026 NCAAs' },
+            { value: '1:22.00', label: 'NCAA final time' },
+            { value: '-3 sec', label: 'Faster in one season' },
+          ]}
+        />
+        <p className="uk-sec-closer">
+          <a className="uk-primary-button" href={SWIMSWAM_RELAY_URL} target="_blank" rel="noopener noreferrer" data-testid="link-swimswam-relay">
+            Read the story on SwimSwam
+          </a>
+        </p>
+      </Section>
       <GalleryStrip photo={photos.swimmersHighFive} />
     </SubpageLayout>
   );

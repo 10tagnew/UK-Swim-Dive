@@ -24,6 +24,19 @@ const marqueePhrases = [
   { text: 'Von Lexington in die Welt', lang: 'de' },
 ];
 
+const internationalSuccess = [
+  { photo: photos.intlSuccessStephan1, caption: 'Stephan Steverink, South American Games' },
+  { photo: photos.intlSuccessYasminSilva2, caption: 'Yasmin Silva, Peru' },
+  { photo: photos.intlSuccessFilippo2, caption: 'Filippo Bertoni, World Junior Championships' },
+  { photo: photos.intlSuccessLevi1, caption: 'Levi Sandidge, FISU America Games' },
+  { photo: photos.intlSuccessKarringtonHansen1, caption: 'Karrington Hansen, Open Water Junior Worlds bronze' },
+  { photo: photos.intlSuccessGabby1, caption: 'Gabrielle Idle-Beavers, Great Britain' },
+  { photo: photos.intlSuccessStephan2, caption: 'Stephan Steverink, Pan American Junior Games' },
+  { photo: photos.intlSuccessFilippo1, caption: 'Filippo Bertoni, Italy' },
+  { photo: photos.intlSuccessLysander1, caption: 'Lysander Osman, France' },
+  { photo: photos.intlSuccessYasminSilva1, caption: 'Yasmin Silva, Peru' },
+];
+
 const countries = Array.from(new Set(internationalAthletes.map((athlete) => athlete.country))).sort();
 // Athletes with a senior World Championships (long or short course) in their honors; junior and university games do not count.
 const worldChampionshipAthletes = internationalAthletes.filter((athlete) =>
@@ -225,6 +238,20 @@ export default function InternationalPage() {
       recruitKicker="International recruits"
     >
       <Roster />
+      <Section tone="white" labelledBy="success-title">
+        <h2 id="success-title" className="uk-sec-title">International <span>Success</span></h2>
+        <p className="uk-sec-lead">Podiums, medals and national team moments from Kentucky swimmers around the world.</p>
+        <ul className="uk-success-grid">
+          {internationalSuccess.map((item) => (
+            <li className="uk-success-card" key={item.photo.src}>
+              <figure>
+                <img src={item.photo.src} alt={item.photo.alt} loading="lazy" decoding="async" />
+                <figcaption>{item.caption}</figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+      </Section>
       <section className="uk-words" aria-labelledby="words-title">
         <div className="uk-words-head">
           <h2 id="words-title" className="uk-sec-title">In Their <span>Words</span></h2>
